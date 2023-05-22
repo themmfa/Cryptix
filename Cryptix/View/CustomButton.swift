@@ -11,6 +11,7 @@ class CustomButton: UIButton {
     init(title: String) {
         super.init(frame: .zero)
         setTitle(title, for: .normal)
+        layer.cornerRadius = 4
         setHeight(50)
     }
 

@@ -30,3 +30,21 @@ class LoginViewModel: AuthenticationViewModel {
         return isFormValid
     }
 }
+
+class RegisterViewModel: AuthenticationViewModel {
+    var email: String?
+    var password: String?
+    var name: String?
+
+    var isFormValid: Bool {
+        return email?.isEmpty == false && password?.isEmpty == false && name?.isEmpty == false
+    }
+
+    var loginButtonColor: UIColor {
+        return isFormValid ? .black : .gray
+    }
+
+    var loginButtonEnabled: Bool {
+        return isFormValid
+    }
+}
