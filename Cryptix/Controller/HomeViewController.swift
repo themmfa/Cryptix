@@ -27,6 +27,13 @@ class HomeViewController: UIViewController {
 
     private var emptyPageImage = EmptyPage()
 
+    private var addCryptoButton: UIButton = {
+        var button = CustomButton(title: "Add Crypto")
+        button.isEnabled = true
+        button.backgroundColor = .black
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,9 +55,15 @@ extension HomeViewController {
     private func layout() {
         // MARK: - Empty page
 
+        // TODO: Add firebase checks
         view.addSubview(emptyPageImage)
         emptyPageImage.centerX(inView: view)
         emptyPageImage.centerY(inView: view)
         emptyPageImage.setDimensions(height: 500, width: view.frame.size.width)
+
+        // MARK: - Add crypto button
+
+        view.addSubview(addCryptoButton)
+        addCryptoButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 24, paddingBottom: 24, paddingRight: 24)
     }
 }
