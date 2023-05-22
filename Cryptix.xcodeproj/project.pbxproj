@@ -27,6 +27,7 @@
 		85D6F0482A1BF960004224DE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0472A1BF960004224DE /* UserModel.swift */; };
 		85D6F04A2A1BF9FF004224DE /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */; };
 		85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */; };
+		85D6F04E2A1C0054004224DE /* EmptyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04D2A1C0054004224DE /* EmptyPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		85D6F0472A1BF960004224DE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = Cryptix/API/UserModel.swift; sourceTree = SOURCE_ROOT; };
 		85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		85D6F04D2A1C0054004224DE /* EmptyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				21798E4A2A1B5E8300AD8135 /* CustomButton.swift */,
 				85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */,
 				85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */,
+				85D6F04D2A1C0054004224DE /* EmptyPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				85D6F04A2A1BF9FF004224DE /* CustomActivityIndicator.swift in Sources */,
 				21798E2F2A1B583400AD8135 /* SceneDelegate.swift in Sources */,
 				85D6F0432A1BF7AE004224DE /* HomeViewController.swift in Sources */,
+				85D6F04E2A1C0054004224DE /* EmptyPage.swift in Sources */,
 				21798E472A1B5ABE00AD8135 /* Extensions.swift in Sources */,
 				21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */,
 				85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */,

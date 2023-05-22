@@ -16,7 +16,12 @@ class RegisterViewController: UIViewController {
         return logo
     }()
 
-    private var nameField = CustomTextfield(placeholder: "Name")
+    private var nameField: UITextField = {
+        var nameField = CustomTextfield(placeholder: "Name")
+        nameField.autocapitalizationType = .words
+        return nameField
+    }()
+
     private var emailField = CustomTextfield(placeholder: "Email")
 
     private var passwordField: UITextField = {

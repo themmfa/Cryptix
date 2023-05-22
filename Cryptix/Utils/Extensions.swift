@@ -30,8 +30,8 @@ extension UIView {
                 paddingBottom: CGFloat = 0,
                 paddingRight: CGFloat = 0,
                 width: CGFloat? = nil,
-                height: CGFloat? = nil) {
-        
+                height: CGFloat? = nil)
+    {
         translatesAutoresizingMaskIntoConstraints = false
         
         if let top = top {
@@ -75,13 +75,13 @@ extension UIView {
     }
     
     func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil,
-                 paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
-        
+                 paddingLeft: CGFloat = 0, constant: CGFloat = 0)
+    {
         translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
         
         if let left = leftAnchor {
-            anchor(left: left, paddingLeft: paddingLeft)
+            self.anchor(left: left, paddingLeft: paddingLeft)
         }
     }
     
@@ -104,7 +104,24 @@ extension UIView {
     func fillSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
         guard let view = superview else { return }
-        anchor(top: view.topAnchor, left: view.leftAnchor,
-               bottom: view.bottomAnchor, right: view.rightAnchor)
+        self.anchor(top: view.topAnchor, left: view.leftAnchor,
+                    bottom: view.bottomAnchor, right: view.rightAnchor)
+    }
+}
+
+extension UINavigationController {
+    func setupNavAppearence() {
+        let appearence = UINavigationBarAppearance()
+        appearence.configureWithOpaqueBackground()
+        
+        appearence.backgroundColor = .black
+        appearence.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
+      
+        self.navigationBar.standardAppearance = appearence
+        self.navigationBar.scrollEdgeAppearance = appearence
+        self.navigationBar.compactAppearance = appearence
+        
+        self.navigationBar.tintColor = .white
+        UIBarButtonItem.appearance().tintColor = .white
     }
 }
