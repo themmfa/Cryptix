@@ -114,14 +114,14 @@ extension UINavigationController {
         let appearence = UINavigationBarAppearance()
         appearence.configureWithOpaqueBackground()
         
-        appearence.backgroundColor = .black
-        appearence.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
+        appearence.backgroundColor = .white
+        appearence.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
       
         self.navigationBar.standardAppearance = appearence
         self.navigationBar.scrollEdgeAppearance = appearence
         self.navigationBar.compactAppearance = appearence
         
-        self.navigationBar.tintColor = .white
-        UIBarButtonItem.appearance().tintColor = .white
+        self.navigationBar.tintColor = .black
+        UIBarButtonItem.appearance().tintColor = .black
     }
 }
