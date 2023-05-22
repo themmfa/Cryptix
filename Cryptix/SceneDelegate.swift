@@ -5,6 +5,7 @@
 //  Created by Fatih Erdoğan on 22.05.2023.
 //
 
+import FirebaseAuth
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -14,7 +15,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        let navigationController = UINavigationController(rootViewController: LoginViewController())
+
+        var mainViewController = UIViewController()
+
+        // MARK: - Check if user logged in
+
+        if Auth.auth().currentUser != nil {
+            mainViewController = HomeViewController()
+        }
+        else {
+            mainViewController = LoginViewController()
+        }
+
+        let navigationController = UINavigationController(rootViewController: mainViewController)
         window.rootViewController = navigationController
 
         window.makeKeyAndVisible()
