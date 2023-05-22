@@ -50,11 +50,16 @@ class RegisterViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    @objc private func register() {
+        registerViewModel.registerUser(self, navigationController: navigationController!)
+    }
+
     override func viewDidLoad() {
         view.backgroundColor = .white
         layout()
         textfieldObservers()
         gotoLoginButton.addTarget(self, action: #selector(goToLoginButtonAction), for: UIControl.Event.touchUpInside)
+        registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
     }
 }
 

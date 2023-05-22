@@ -20,7 +20,6 @@ class CustomTextfield: UITextField {
 
         // MARK: - Textfield customization
 
-        // borderStyle = .none
         layer.cornerRadius = 4
         layer.borderColor = UIColor(red: 151.0/255, green: 151.0/255, blue: 151.0/255, alpha: 1).cgColor
         textColor = .white
@@ -30,7 +29,7 @@ class CustomTextfield: UITextField {
         tintColor = .white
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor(red: 83.0/255, green: 83.0/255, blue: 83.0/255, alpha: 1)])
         autocorrectionType = .no
-
+        autocapitalizationType = .none
         passwordRules = UITextInputPasswordRules(descriptor: "")
     }
 

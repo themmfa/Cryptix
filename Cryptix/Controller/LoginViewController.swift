@@ -52,6 +52,10 @@ class LoginViewController: UIViewController {
         let registerView = RegisterViewController()
         navigationController?.pushViewController(registerView, animated: true)
     }
+    
+    @objc private func login() {
+        loginViewModel.loginUser(self, navigationController: navigationController!)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +63,7 @@ class LoginViewController: UIViewController {
         layout()
         textfieldObservers()
         gotoRegisterButton.addTarget(self, action: #selector(goToRegisterButtonAction), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
     }
 }
 

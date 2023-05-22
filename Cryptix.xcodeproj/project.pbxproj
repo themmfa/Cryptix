@@ -23,6 +23,10 @@
 		85D6F03F2A1BF77F004224DE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 85D6F03E2A1BF77F004224DE /* FirebaseFirestore */; };
 		85D6F0412A1BF77F004224DE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 85D6F0402A1BF77F004224DE /* FirebaseStorage */; };
 		85D6F0432A1BF7AE004224DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0422A1BF7AE004224DE /* HomeViewController.swift */; };
+		85D6F0462A1BF90F004224DE /* AuthenticationApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0452A1BF90F004224DE /* AuthenticationApiService.swift */; };
+		85D6F0482A1BF960004224DE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0472A1BF960004224DE /* UserModel.swift */; };
+		85D6F04A2A1BF9FF004224DE /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */; };
+		85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,10 @@
 		85D6F0372A1BF66D004224DE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		85D6F0392A1BF6E8004224DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85D6F0422A1BF7AE004224DE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		85D6F0452A1BF90F004224DE /* AuthenticationApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationApiService.swift; sourceTree = "<group>"; };
+		85D6F0472A1BF960004224DE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = Cryptix/API/UserModel.swift; sourceTree = SOURCE_ROOT; };
+		85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
+		85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 		21798E2B2A1B583400AD8135 /* Cryptix */ = {
 			isa = PBXGroup;
 			children = (
+				85D6F0442A1BF8FD004224DE /* API */,
 				85D6F0392A1BF6E8004224DE /* GoogleService-Info.plist */,
 				21798E442A1B59AB00AD8135 /* Utils */,
 				21798E432A1B59A300AD8135 /* Controller */,
@@ -95,6 +104,7 @@
 		21798E402A1B598800AD8135 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				85D6F0472A1BF960004224DE /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,6 +122,8 @@
 			children = (
 				21798E482A1B5D0800AD8135 /* CustomTextField.swift */,
 				21798E4A2A1B5E8300AD8135 /* CustomButton.swift */,
+				85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */,
+				85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,6 +144,14 @@
 				21798E462A1B5ABE00AD8135 /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		85D6F0442A1BF8FD004224DE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				85D6F0452A1BF90F004224DE /* AuthenticationApiService.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,15 +234,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D6F0462A1BF90F004224DE /* AuthenticationApiService.swift in Sources */,
 				21798E312A1B583400AD8135 /* LoginViewController.swift in Sources */,
 				21798E2D2A1B583400AD8135 /* AppDelegate.swift in Sources */,
 				21798E4B2A1B5E8300AD8135 /* CustomButton.swift in Sources */,
 				85D6F0342A1BF0DE004224DE /* RegisterViewController.swift in Sources */,
+				85D6F04A2A1BF9FF004224DE /* CustomActivityIndicator.swift in Sources */,
 				21798E2F2A1B583400AD8135 /* SceneDelegate.swift in Sources */,
 				85D6F0432A1BF7AE004224DE /* HomeViewController.swift in Sources */,
 				21798E472A1B5ABE00AD8135 /* Extensions.swift in Sources */,
 				21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */,
+				85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */,
 				85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */,
+				85D6F0482A1BF960004224DE /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
