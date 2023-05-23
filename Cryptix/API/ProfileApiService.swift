@@ -6,12 +6,7 @@
 //
 
 
-enum CustomError:Error{
-    case userNotFount(message:String)
-    case documentDoesNotExist(message:String)
-    case fieldCouldNotFound(message:String)
-    case cantSignOut(message:String)
-}
+
 
 import Foundation
 import Firebase

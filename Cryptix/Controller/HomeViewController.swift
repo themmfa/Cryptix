@@ -25,10 +25,9 @@ class HomeViewController: UIViewController {
         let profileButton = UIBarButtonItem(customView: button)
         return profileButton
     }()
-    
-    
-    @objc private func goToProfilePage(){
-        navigationController?.pushViewController(ProfileViewController(), animated:true)
+
+    @objc private func goToProfilePage() {
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
 
     private var emptyPageImage = EmptyPage()
@@ -46,16 +45,19 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         setupNavBar()
         layout()
-        addCryptoButton.addTarget(self, action: #selector(openBottomSheet), for: .touchUpInside)
-        
+        addCryptoButton.addTarget(self, action: #selector(addCryptoAction), for: .touchUpInside)
     }
 }
 
 extension HomeViewController {
+    @objc func addCryptoAction() {
+        navigationController?.pushViewController(AddCryptoAddressViewController(), animated: true)
+    }
+
     /// Nav bar setup
     func setupNavBar() {
         navigationController?.setViewControllers([self], animated: true)
-        navigationItem.title = "Crypto Addresses"
+        navigationItem.title = "Home"
         navigationController?.setupNavAppearence()
         navigationItem.rightBarButtonItem = profileButton
     }
@@ -74,21 +76,5 @@ extension HomeViewController {
         view.addSubview(addCryptoButton)
         addCryptoButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 24, paddingBottom: 24, paddingRight: 24)
     }
-
-    // TODO: - Customize bottom sheet
-    @objc func openBottomSheet() {
-        let detailViewController = UIViewController()
-        detailViewController.view.backgroundColor = .red
-        let nav = UINavigationController(rootViewController: detailViewController)
-        // 1
-        nav.modalPresentationStyle = .pageSheet
-
-        // 2
-        if let sheet = nav.sheetPresentationController {
-            // 3
-            sheet.detents = [.medium(), .large()]
-        }
-        // 4
-        present(nav, animated: true, completion: nil)
-    }
 }
+

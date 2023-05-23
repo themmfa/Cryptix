@@ -31,6 +31,11 @@
 		85D6F04A2A1BF9FF004224DE /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */; };
 		85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */; };
 		85D6F04E2A1C0054004224DE /* EmptyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04D2A1C0054004224DE /* EmptyPage.swift */; };
+		85E1D0D82A1D41E4008D63EA /* AddCryptoAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0D72A1D41E4008D63EA /* AddCryptoAddressViewController.swift */; };
+		85E1D0DC2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0DB2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift */; };
+		85E1D0DE2A1D4D46008D63EA /* AddCryptoAddressApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0DD2A1D4D46008D63EA /* AddCryptoAddressApiService.swift */; };
+		85E1D0E02A1D5427008D63EA /* CryptoAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0DF2A1D5427008D63EA /* CryptoAddressModel.swift */; };
+		85E1D0E22A1D54F2008D63EA /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E12A1D54F2008D63EA /* CustomErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +62,11 @@
 		85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		85D6F04D2A1C0054004224DE /* EmptyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPage.swift; sourceTree = "<group>"; };
+		85E1D0D72A1D41E4008D63EA /* AddCryptoAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCryptoAddressViewController.swift; sourceTree = "<group>"; };
+		85E1D0DB2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCryptoAddressViewModel.swift; sourceTree = "<group>"; };
+		85E1D0DD2A1D4D46008D63EA /* AddCryptoAddressApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCryptoAddressApiService.swift; sourceTree = "<group>"; };
+		85E1D0DF2A1D5427008D63EA /* CryptoAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAddressModel.swift; sourceTree = "<group>"; };
+		85E1D0E12A1D54F2008D63EA /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +138,7 @@
 				85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */,
 				85D6F0422A1BF7AE004224DE /* HomeViewController.swift */,
 				211759472A1C98F00051B0F7 /* ProfileViewController.swift */,
+				85E1D0D72A1D41E4008D63EA /* AddCryptoAddressViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -136,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				21798E462A1B5ABE00AD8135 /* Extensions.swift */,
+				85E1D0E12A1D54F2008D63EA /* CustomErrors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -145,6 +157,7 @@
 			children = (
 				85D6F0452A1BF90F004224DE /* AuthenticationApiService.swift */,
 				211759492A1C99B60051B0F7 /* ProfileApiService.swift */,
+				85E1D0DD2A1D4D46008D63EA /* AddCryptoAddressApiService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -154,6 +167,7 @@
 			children = (
 				85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */,
 				2117594B2A1C9F0C0051B0F7 /* ProfileViewModel.swift */,
+				85E1D0DB2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -162,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				85D6F0472A1BF960004224DE /* UserModel.swift */,
+				85E1D0DF2A1D5427008D63EA /* CryptoAddressModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E1D0DE2A1D4D46008D63EA /* AddCryptoAddressApiService.swift in Sources */,
 				85D6F0462A1BF90F004224DE /* AuthenticationApiService.swift in Sources */,
 				21798E312A1B583400AD8135 /* LoginViewController.swift in Sources */,
 				21798E2D2A1B583400AD8135 /* AppDelegate.swift in Sources */,
@@ -254,14 +270,18 @@
 				85D6F04A2A1BF9FF004224DE /* CustomActivityIndicator.swift in Sources */,
 				21798E2F2A1B583400AD8135 /* SceneDelegate.swift in Sources */,
 				85D6F0432A1BF7AE004224DE /* HomeViewController.swift in Sources */,
+				85E1D0E22A1D54F2008D63EA /* CustomErrors.swift in Sources */,
 				85D6F04E2A1C0054004224DE /* EmptyPage.swift in Sources */,
 				21798E472A1B5ABE00AD8135 /* Extensions.swift in Sources */,
 				21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */,
 				85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */,
 				211759482A1C98F00051B0F7 /* ProfileViewController.swift in Sources */,
 				2117594C2A1C9F0C0051B0F7 /* ProfileViewModel.swift in Sources */,
+				85E1D0DC2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift in Sources */,
+				85E1D0D82A1D41E4008D63EA /* AddCryptoAddressViewController.swift in Sources */,
 				85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */,
 				2117594A2A1C99B60051B0F7 /* ProfileApiService.swift in Sources */,
+				85E1D0E02A1D5427008D63EA /* CryptoAddressModel.swift in Sources */,
 				85D6F0482A1BF960004224DE /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
