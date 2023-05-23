@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         setupNavBar()
         layout()
+        addCryptoButton.addTarget(self, action: #selector(openBottomSheet), for: .touchUpInside)
     }
 }
 
@@ -65,5 +66,22 @@ extension HomeViewController {
 
         view.addSubview(addCryptoButton)
         addCryptoButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 24, paddingBottom: 24, paddingRight: 24)
+    }
+
+    // TODO: - Customize bottom sheet
+    @objc func openBottomSheet() {
+        let detailViewController = UIViewController()
+        detailViewController.view.backgroundColor = .red
+        let nav = UINavigationController(rootViewController: detailViewController)
+        // 1
+        nav.modalPresentationStyle = .pageSheet
+
+        // 2
+        if let sheet = nav.sheetPresentationController {
+            // 3
+            sheet.detents = [.medium(), .large()]
+        }
+        // 4
+        present(nav, animated: true, completion: nil)
     }
 }

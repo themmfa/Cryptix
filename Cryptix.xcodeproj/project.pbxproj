@@ -18,7 +18,6 @@
 		85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */; };
 		85D6F0342A1BF0DE004224DE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */; };
 		85D6F0382A1BF66D004224DE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85D6F0372A1BF66D004224DE /* .gitignore */; };
-		85D6F03A2A1BF6E8004224DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85D6F0392A1BF6E8004224DE /* GoogleService-Info.plist */; };
 		85D6F03D2A1BF77F004224DE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 85D6F03C2A1BF77F004224DE /* FirebaseAuth */; };
 		85D6F03F2A1BF77F004224DE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 85D6F03E2A1BF77F004224DE /* FirebaseFirestore */; };
 		85D6F0412A1BF77F004224DE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 85D6F0402A1BF77F004224DE /* FirebaseStorage */; };
@@ -28,6 +27,7 @@
 		85D6F04A2A1BF9FF004224DE /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */; };
 		85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */; };
 		85D6F04E2A1C0054004224DE /* EmptyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04D2A1C0054004224DE /* EmptyPage.swift */; };
+		85E1D0CE2A1C6D0D008D63EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85E1D0CD2A1C6D0D008D63EA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,13 +44,13 @@
 		85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationViewModel.swift; path = Cryptix/ViewModel/AuthenticationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		85D6F0372A1BF66D004224DE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		85D6F0392A1BF6E8004224DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85D6F0422A1BF7AE004224DE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		85D6F0452A1BF90F004224DE /* AuthenticationApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationApiService.swift; sourceTree = "<group>"; };
 		85D6F0472A1BF960004224DE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = Cryptix/Model/UserModel.swift; sourceTree = SOURCE_ROOT; };
 		85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		85D6F04D2A1C0054004224DE /* EmptyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPage.swift; sourceTree = "<group>"; };
+		85E1D0CD2A1C6D0D008D63EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,18 +87,18 @@
 		21798E2B2A1B583400AD8135 /* Cryptix */ = {
 			isa = PBXGroup;
 			children = (
+				21798E432A1B59A300AD8135 /* Controller */,
+				21798E422A1B599F00AD8135 /* View */,
 				85E1D0CC2A1C6CB8008D63EA /* Model */,
 				85E1D0CB2A1C6CA9008D63EA /* ViewModel */,
 				85D6F0442A1BF8FD004224DE /* API */,
-				85D6F0392A1BF6E8004224DE /* GoogleService-Info.plist */,
 				21798E442A1B59AB00AD8135 /* Utils */,
-				21798E432A1B59A300AD8135 /* Controller */,
-				21798E422A1B599F00AD8135 /* View */,
 				21798E2C2A1B583400AD8135 /* AppDelegate.swift */,
 				21798E2E2A1B583400AD8135 /* SceneDelegate.swift */,
 				21798E352A1B583500AD8135 /* Assets.xcassets */,
 				21798E372A1B583500AD8135 /* LaunchScreen.storyboard */,
 				21798E3A2A1B583500AD8135 /* Info.plist */,
+				85E1D0CD2A1C6D0D008D63EA /* GoogleService-Info.plist */,
 			);
 			path = Cryptix;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21798E392A1B583500AD8135 /* LaunchScreen.storyboard in Resources */,
-				85D6F03A2A1BF6E8004224DE /* GoogleService-Info.plist in Resources */,
+				85E1D0CE2A1C6D0D008D63EA /* GoogleService-Info.plist in Resources */,
 				85D6F0382A1BF66D004224DE /* .gitignore in Resources */,
 				21798E362A1B583500AD8135 /* Assets.xcassets in Resources */,
 			);
