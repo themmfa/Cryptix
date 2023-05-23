@@ -8,10 +8,11 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    private var profileButton: UIBarButtonItem = {
+    private lazy var profileButton: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .default)
         button.setImage(UIImage(systemName: "person.crop.circle", withConfiguration: config), for: .normal)
+        button.addTarget(self, action: #selector(goToProfilePage), for: .touchUpInside)
         let profileButton = UIBarButtonItem(customView: button)
         return profileButton
     }()
@@ -24,6 +25,11 @@ class HomeViewController: UIViewController {
         let profileButton = UIBarButtonItem(customView: button)
         return profileButton
     }()
+    
+    
+    @objc private func goToProfilePage(){
+        navigationController?.pushViewController(ProfileViewController(), animated:true)
+    }
 
     private var emptyPageImage = EmptyPage()
 
@@ -41,6 +47,7 @@ class HomeViewController: UIViewController {
         setupNavBar()
         layout()
         addCryptoButton.addTarget(self, action: #selector(openBottomSheet), for: .touchUpInside)
+        
     }
 }
 
