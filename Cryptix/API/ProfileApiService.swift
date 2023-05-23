@@ -10,6 +10,7 @@ enum CustomError:Error{
     case userNotFount(message:String)
     case documentDoesNotExist(message:String)
     case fieldCouldNotFound(message:String)
+    case cantSignOut(message:String)
 }
 
 import Foundation
@@ -18,35 +19,40 @@ import Firebase
 
 class ProfileApiService{
     
-    
-    
-    func getUserInfo(completion: @escaping (UserModel?, Error?) -> Void){
-        
+    @MainActor
+    func getUserInfo() async throws -> UserModel?{
         guard let currentUser = Auth.auth().currentUser else {
-            completion(nil,CustomError.userNotFount(message: "User could not found"))
-            return
+            throw CustomError.userNotFount(message: "User not found")
         }
         
         let uid = currentUser.uid
         let userRef = Firestore.firestore().collection("users").document(uid)
         
-        userRef.getDocument { document, error in
-            if let document = document,document.exists {
-                let data = document.data()
-                guard let email = data!["email"] as? String else{
-                    completion(nil,CustomError.documentDoesNotExist(message: "No name field"))
-                    return
-                }
-                guard let name = data!["name"] as? String else{
-                    completion(nil,CustomError.documentDoesNotExist(message: "No name field"))
-                    return
-                }
-                let userModel = UserModel(name: name,email: email)
-                completion(userModel,nil)
+        do{
+            let document = try await userRef.getDocument()
+            let data = document.data()
+            
+            guard let email = data!["email"] as? String else{
+                throw CustomError.fieldCouldNotFound(message: "No email field")
             }
-            else{
-                completion(nil,CustomError.documentDoesNotExist(message: error!.localizedDescription))
+            guard let name = data!["name"] as? String else{
+                throw CustomError.fieldCouldNotFound(message: "No name field")
             }
+            let userModel = UserModel(name: name,email: email)
+            
+            return userModel
+        }catch{
+            throw CustomError.documentDoesNotExist(message: "Document does not exist")
         }
+    }
+    
+    
+
+    func signOut() async throws {
+       do {
+           try await Auth.auth().signOut()
+       } catch {
+           throw CustomError.cantSignOut(message: error.localizedDescription)
+       }
     }
 }

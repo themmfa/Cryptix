@@ -19,15 +19,40 @@ class ProfileViewController: UIViewController{
     }()
     
     private lazy var emailField: UITextField = {
-       var emailField = CustomTextfield(placeholder: "")
-        emailField.text = profileViewModel.user?.email
+        var emailField = CustomTextfield(placeholder: "")
         emailField.isUserInteractionEnabled = false
        return emailField
     }()
     
+    private lazy var nameField: UITextField = {
+        var nameField = CustomTextfield(placeholder: "")
+        nameField.isUserInteractionEnabled = false
+       return nameField
+    }()
+    
+    
+    private var signOutButton: UIButton = {
+        var signOutButton = CustomButton(title: "Sign Out")
+        signOutButton.backgroundColor = .black
+        return signOutButton
+    }()
+    
+    
+    @objc func signOut() {
+        profileViewModel.signout(in: self)
+    }
+    
     override func viewDidLoad() {
         view.backgroundColor = .white
-        profileViewModel.getUserInfo(in:self)
+        signOutButton.addTarget(self, action: #selector(signOut), for: .touchUpInside)
+        Task{
+            do{
+                await profileViewModel.getUserInfo(in:self)
+                emailField.text = profileViewModel.user?.email!
+                nameField.text = profileViewModel.user?.name
+            }
+        }
+        
         layout()
     }
 }
@@ -46,5 +71,14 @@ extension ProfileViewController{
         view.addSubview(emailField)
         emailField.centerX(inView: view)
         emailField.anchor(top: logo.bottomAnchor,left: view.leftAnchor,right: view.rightAnchor, paddingTop: 24,paddingLeft: 24,paddingRight: 24)
+        
+        view.addSubview(nameField)
+        nameField.centerX(inView: view)
+        nameField.anchor(top: emailField.bottomAnchor,left: view.leftAnchor,right: view.rightAnchor, paddingTop: 24,paddingLeft: 24,paddingRight: 24)
+        
+        view.addSubview(signOutButton)
+        signOutButton.centerX(inView: view)
+        signOutButton.anchor(top: nameField.bottomAnchor,left: view.leftAnchor,right: view.rightAnchor, paddingTop: 24,paddingLeft: 24,paddingRight: 24)
+        
     }
 }
