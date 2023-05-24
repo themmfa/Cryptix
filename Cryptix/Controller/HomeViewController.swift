@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    private let homeViewModel = HomeViewModel()
+
     private lazy var profileButton: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .default)
@@ -15,6 +17,12 @@ class HomeViewController: UIViewController {
         button.addTarget(self, action: #selector(goToProfilePage), for: .touchUpInside)
         let profileButton = UIBarButtonItem(customView: button)
         return profileButton
+    }()
+
+    private lazy var cryptoAddressCollectionView: UICollectionViewController = {
+        let layout = UICollectionViewFlowLayout()
+        var cryptoAddressCollectionView = CryptoAddressCollectionViewController(collectionViewLayout: layout, homeViewModel: homeViewModel)
+        return cryptoAddressCollectionView
     }()
 
     // TODO: Fix the issue and add to left bar item
@@ -41,11 +49,14 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .white
         setupNavBar()
-        layout()
+        homeViewModel.getCryptoAddresses(in: self, layout: layout, collectionView: cryptoAddressCollectionView.collectionView)
         addCryptoButton.addTarget(self, action: #selector(addCryptoAction), for: .touchUpInside)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        homeViewModel.getCryptoAddresses(in: self, layout: layout, collectionView: cryptoAddressCollectionView.collectionView)
     }
 }
 
@@ -62,14 +73,21 @@ extension HomeViewController {
         navigationItem.rightBarButtonItem = profileButton
     }
 
-    private func layout() {
+    func layout() {
         // MARK: - Empty page
 
         // TODO: Add firebase checks
-        view.addSubview(emptyPageImage)
-        emptyPageImage.centerX(inView: view)
-        emptyPageImage.centerY(inView: view)
-        emptyPageImage.setDimensions(height: 500, width: view.frame.size.width)
+        if homeViewModel.addressList.isEmpty {
+            view.addSubview(emptyPageImage)
+            emptyPageImage.centerX(inView: view)
+            emptyPageImage.centerY(inView: view)
+            emptyPageImage.setDimensions(height: 500, width: view.frame.size.width)
+        }
+        else {
+            view.addSubview(cryptoAddressCollectionView.view)
+            cryptoAddressCollectionView.view.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 500)
+            cryptoAddressCollectionView.view.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 24, paddingLeft: 12, paddingBottom: 100, paddingRight: 12)
+        }
 
         // MARK: - Add crypto button
 
@@ -77,4 +95,3 @@ extension HomeViewController {
         addCryptoButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 24, paddingBottom: 24, paddingRight: 24)
     }
 }
-

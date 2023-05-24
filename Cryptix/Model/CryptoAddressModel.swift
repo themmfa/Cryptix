@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptoAddressModel {
+struct CryptoAddressModel: Decodable {
     var name: String?
     var exchange: String?
     var cryptoAddress: String?
