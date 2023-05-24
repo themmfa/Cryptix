@@ -24,6 +24,7 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.backgroundColor = .white
         collectionView!.register(CustomCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
