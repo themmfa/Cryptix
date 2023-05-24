@@ -33,12 +33,15 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CustomCell
+        cell.nameField.text = homeViewModel.addressList[indexPath.row]?.name
+        cell.exchangeField.text = homeViewModel.addressList[indexPath.row]?.exchange
+        cell.cryptoAddressField.text = homeViewModel.addressList[indexPath.row]?.cryptoAddress
         return cell
     }
 }
 
 extension CryptoAddressCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 100)
+        return CGSize(width: view.frame.size.width, height: 60)
     }
 }
