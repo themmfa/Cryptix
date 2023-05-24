@@ -20,7 +20,7 @@ class HomeApiService {
         let documentRef = Firestore.firestore().collection("users").document(uid).collection("addresses")
 
         do {
-            let addresses = try await documentRef.getDocuments()
+            let addresses = try await documentRef.order(by: "dateCreated").getDocuments()
 
             for address in addresses.documents {
                 let data = address.data()

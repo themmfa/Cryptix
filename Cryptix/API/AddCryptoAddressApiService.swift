@@ -26,6 +26,7 @@ class AddCryptoAddressApiService {
             "name": cryptoAdressModel.name!,
             "exchange": cryptoAdressModel.exchange!,
             "cryptoAddress": cryptoAdressModel.cryptoAddress!,
+            "dateCreated": Date().timeIntervalSince1970
         ]
         
         let userDocument = userCollection.document(uid)
