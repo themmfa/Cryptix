@@ -39,6 +39,27 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
         cell.cryptoAddressField.text = homeViewModel.addressList[indexPath.row]?.cryptoAddress
         return cell
     }
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailViewController = CustomBottomSheetViewController(cryptoModel: homeViewModel.addressList[indexPath.row]!)
+        let nav = UINavigationController(rootViewController: detailViewController)
+        nav.modalPresentationStyle = .pageSheet
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.custom(resolver: { _ in
+                300
+            })]
+            sheet.preferredCornerRadius = 12
+            sheet.prefersGrabberVisible = true
+        }
+
+        // MARK: - By presenting the UIActivityViewController from the window's root view controller, we avoid potential issues related to the detached view controller. This approach ensures that the view controller presenting the activity view controller is always a part of the view hierarchy.
+
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootViewController = windowScene.windows.first?.rootViewController
+        {
+            rootViewController.present(nav, animated: true, completion: nil)
+        }
+    }
 }
 
 extension CryptoAddressCollectionViewController: UICollectionViewDelegateFlowLayout {

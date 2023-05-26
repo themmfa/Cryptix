@@ -20,6 +20,23 @@ extension UIButton {
     }
 }
 
+import UIKit
+
+extension UIViewController {
+    func showToast(message: String, duration: TimeInterval = 2.0) {
+        let toastView = ToastView(frame: CGRect(x: 16, y: view.frame.height - 100, width: view.frame.width - 32, height: 35))
+        toastView.setMessage(message)
+        
+        view.addSubview(toastView)
+        
+        UIView.animate(withDuration: 0.3, delay: duration, options: .curveEaseOut, animations: {
+            toastView.alpha = 0
+        }) { _ in
+            toastView.removeFromSuperview()
+        }
+    }
+}
+
 extension UIView {
     func anchor(top: NSLayoutYAxisAnchor? = nil,
                 left: NSLayoutXAxisAnchor? = nil,

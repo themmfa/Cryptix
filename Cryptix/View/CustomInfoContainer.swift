@@ -1,13 +1,13 @@
 //
-//  CustomCellCollectionViewCell.swift
+//  CustomInfoContainer.swift
 //  Cryptix
 //
-//  Created by fe on 24.05.2023.
+//  Created by fe on 26.05.2023.
 //
 
 import UIKit
 
-class CustomCell: UICollectionViewCell {
+class CustomInfoContainer: UIView {
     lazy var imageView: UIImageView = {
         var imageView = UIImageView()
         var image = UIImage(systemName: "bitcoinsign.circle.fill")
@@ -63,7 +63,7 @@ class CustomCell: UICollectionViewCell {
     }
 }
 
-extension CustomCell {
+extension CustomInfoContainer {
     private func layout() {
         // MARK: - Image view
 

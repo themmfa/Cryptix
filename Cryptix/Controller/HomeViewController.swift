@@ -51,7 +51,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupNavBar()
-        homeViewModel.getCryptoAddresses(in: self, layout: layout, collectionView: cryptoAddressCollectionView.collectionView)
         addCryptoButton.addTarget(self, action: #selector(addCryptoAction), for: .touchUpInside)
     }
 
@@ -86,7 +85,7 @@ extension HomeViewController {
         else {
             view.addSubview(cryptoAddressCollectionView.view)
             cryptoAddressCollectionView.view.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 500)
-            cryptoAddressCollectionView.view.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 24, paddingLeft: 12, paddingBottom: 100, paddingRight: 12)
+            cryptoAddressCollectionView.view.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 24, paddingLeft: 12, paddingBottom: 74, paddingRight: 12)
         }
 
         // MARK: - Add crypto button

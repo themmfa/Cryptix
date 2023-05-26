@@ -19,6 +19,7 @@
 		21798E472A1B5ABE00AD8135 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E462A1B5ABE00AD8135 /* Extensions.swift */; };
 		21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E482A1B5D0800AD8135 /* CustomTextField.swift */; };
 		21798E4B2A1B5E8300AD8135 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E4A2A1B5E8300AD8135 /* CustomButton.swift */; };
+		26BC74400EE0B920895AD83E /* Pods_Cryptix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CC5C8EA4DE017BC2DD05B /* Pods_Cryptix.framework */; };
 		85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */; };
 		85D6F0342A1BF0DE004224DE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */; };
 		85D6F0382A1BF66D004224DE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85D6F0372A1BF66D004224DE /* .gitignore */; };
@@ -40,9 +41,14 @@
 		85E1D0E62A1DCF28008D63EA /* HomeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E52A1DCF28008D63EA /* HomeApiService.swift */; };
 		85E1D0E82A1DDAB3008D63EA /* CryptoAddressCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E72A1DDAB3008D63EA /* CryptoAddressCollectionViewController.swift */; };
 		85E1D0EA2A1DE303008D63EA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E92A1DE303008D63EA /* CustomCell.swift */; };
+		85E1D0EC2A208B0D008D63EA /* CustomBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0EB2A208B0C008D63EA /* CustomBottomSheetViewController.swift */; };
+		85E1D0F02A20A9B4008D63EA /* CustomInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0EF2A20A9B4008D63EA /* CustomInfoContainer.swift */; };
+		85E1D0F22A20C344008D63EA /* CustomToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0F12A20C344008D63EA /* CustomToastMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		065C7A533B4FBC6E267A9625 /* Pods-Cryptix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptix.debug.xcconfig"; path = "Target Support Files/Pods-Cryptix/Pods-Cryptix.debug.xcconfig"; sourceTree = "<group>"; };
+		1D0CC5C8EA4DE017BC2DD05B /* Pods_Cryptix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cryptix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		211759452A1C93E20051B0F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		211759472A1C98F00051B0F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		211759492A1C99B60051B0F7 /* ProfileApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileApiService.swift; sourceTree = "<group>"; };
@@ -57,6 +63,7 @@
 		21798E462A1B5ABE00AD8135 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		21798E482A1B5D0800AD8135 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21798E4A2A1B5E8300AD8135 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		70A6D9A9382CA122298AEA63 /* Pods-Cryptix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptix.release.xcconfig"; path = "Target Support Files/Pods-Cryptix/Pods-Cryptix.release.xcconfig"; sourceTree = "<group>"; };
 		85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationViewModel.swift; path = Cryptix/ViewModel/AuthenticationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		85D6F0372A1BF66D004224DE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -75,6 +82,9 @@
 		85E1D0E52A1DCF28008D63EA /* HomeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeApiService.swift; sourceTree = "<group>"; };
 		85E1D0E72A1DDAB3008D63EA /* CryptoAddressCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAddressCollectionViewController.swift; sourceTree = "<group>"; };
 		85E1D0E92A1DE303008D63EA /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		85E1D0EB2A208B0C008D63EA /* CustomBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomSheetViewController.swift; sourceTree = "<group>"; };
+		85E1D0EF2A20A9B4008D63EA /* CustomInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoContainer.swift; sourceTree = "<group>"; };
+		85E1D0F12A20C344008D63EA /* CustomToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToastMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,7 @@
 				85D6F03D2A1BF77F004224DE /* FirebaseAuth in Frameworks */,
 				85D6F03F2A1BF77F004224DE /* FirebaseFirestore in Frameworks */,
 				85D6F0412A1BF77F004224DE /* FirebaseStorage in Frameworks */,
+				26BC74400EE0B920895AD83E /* Pods_Cryptix.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +108,8 @@
 				85D6F0372A1BF66D004224DE /* .gitignore */,
 				21798E2B2A1B583400AD8135 /* Cryptix */,
 				21798E2A2A1B583400AD8135 /* Products */,
+				2910436CF0EAA113C8ABE701 /* Pods */,
+				9EB653338833AAED3886AB4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +150,9 @@
 				85D6F04D2A1C0054004224DE /* EmptyPage.swift */,
 				85E1D0E72A1DDAB3008D63EA /* CryptoAddressCollectionViewController.swift */,
 				85E1D0E92A1DE303008D63EA /* CustomCell.swift */,
+				85E1D0EB2A208B0C008D63EA /* CustomBottomSheetViewController.swift */,
+				85E1D0EF2A20A9B4008D63EA /* CustomInfoContainer.swift */,
+				85E1D0F12A20C344008D63EA /* CustomToastMessage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +176,15 @@
 				85E1D0E12A1D54F2008D63EA /* CustomErrors.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2910436CF0EAA113C8ABE701 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				065C7A533B4FBC6E267A9625 /* Pods-Cryptix.debug.xcconfig */,
+				70A6D9A9382CA122298AEA63 /* Pods-Cryptix.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		85D6F0442A1BF8FD004224DE /* API */ = {
@@ -193,6 +218,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9EB653338833AAED3886AB4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D0CC5C8EA4DE017BC2DD05B /* Pods_Cryptix.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,6 +233,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21798E3D2A1B583500AD8135 /* Build configuration list for PBXNativeTarget "Cryptix" */;
 			buildPhases = (
+				309DF082CADD2BD7CE718C97 /* [CP] Check Pods Manifest.lock */,
 				21798E252A1B583400AD8135 /* Sources */,
 				21798E262A1B583400AD8135 /* Frameworks */,
 				21798E272A1B583400AD8135 /* Resources */,
@@ -268,6 +302,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		309DF082CADD2BD7CE718C97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cryptix-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		21798E252A1B583400AD8135 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -291,9 +350,12 @@
 				21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */,
 				85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */,
 				211759482A1C98F00051B0F7 /* ProfileViewController.swift in Sources */,
+				85E1D0F02A20A9B4008D63EA /* CustomInfoContainer.swift in Sources */,
 				2117594C2A1C9F0C0051B0F7 /* ProfileViewModel.swift in Sources */,
+				85E1D0EC2A208B0D008D63EA /* CustomBottomSheetViewController.swift in Sources */,
 				85E1D0DC2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift in Sources */,
 				85E1D0D82A1D41E4008D63EA /* AddCryptoAddressViewController.swift in Sources */,
+				85E1D0F22A20C344008D63EA /* CustomToastMessage.swift in Sources */,
 				85E1D0E62A1DCF28008D63EA /* HomeApiService.swift in Sources */,
 				85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */,
 				2117594A2A1C99B60051B0F7 /* ProfileApiService.swift in Sources */,
@@ -432,6 +494,7 @@
 		};
 		21798E3E2A1B583500AD8135 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 065C7A533B4FBC6E267A9625 /* Pods-Cryptix.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -459,6 +522,7 @@
 		};
 		21798E3F2A1B583500AD8135 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70A6D9A9382CA122298AEA63 /* Pods-Cryptix.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
