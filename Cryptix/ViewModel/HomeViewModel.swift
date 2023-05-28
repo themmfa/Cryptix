@@ -60,9 +60,11 @@ class HomeViewModel {
                 let cryptoList = try await firebaseApiService.deleteCryptoAddress(with: cryptoModel)
                 DispatchQueue.main.async { [weak self] in
                     activityIndicatorController.stopAnimating()
-                    CustomAlert.showAlert(title: "Success", message: "Crypto address deleted successfully!", viewController: view) { _ in }
-                    self?.addressList = cryptoList
-                    NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+                    CustomAlert.showAlert(title: "Success", message: "Crypto address deleted successfully!", viewController: view) { _ in
+                        self?.addressList = cryptoList
+                        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+                        view.dismiss(animated: true)
+                    }
                 }
             } catch {
                 DispatchQueue.main.async {

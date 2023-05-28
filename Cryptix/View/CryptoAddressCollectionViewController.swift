@@ -28,9 +28,9 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
         collectionView!.register(CustomCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
-    
+
     @objc func loadList(notification: NSNotification) {
-      self.collectionView.reloadData()
+        collectionView.reloadData()
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -47,9 +47,9 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailViewController = CustomBottomSheetViewController(cryptoModel: homeViewModel.addressList[indexPath.row]!, homeViewModel: homeViewModel)
-        let nav = UINavigationController(rootViewController: detailViewController)
-        nav.modalPresentationStyle = .pageSheet
-        if let sheet = nav.sheetPresentationController {
+
+        detailViewController.modalPresentationStyle = .pageSheet
+        if let sheet = detailViewController.sheetPresentationController {
             sheet.detents = [.custom(resolver: { _ in
                 300
             })]
@@ -62,7 +62,7 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let rootViewController = windowScene.windows.first?.rootViewController
         {
-            rootViewController.present(nav, animated: true, completion: nil)
+            rootViewController.present(detailViewController, animated: true, completion: nil)
         }
     }
 }
