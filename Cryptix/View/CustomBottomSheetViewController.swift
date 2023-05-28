@@ -9,6 +9,7 @@ import UIKit
 
 class CustomBottomSheetViewController: UIViewController {
     var cryptoModel: CryptoAddressModel
+    let homeViewModel: HomeViewModel
 
     lazy var customContainerView: UIView = {
         var customContainerView = CustomInfoContainer()
@@ -57,9 +58,14 @@ class CustomBottomSheetViewController: UIViewController {
         return deleteButton
     }()
 
-    init(cryptoModel: CryptoAddressModel) {
+    init(cryptoModel: CryptoAddressModel, homeViewModel: HomeViewModel) {
         self.cryptoModel = cryptoModel
+        self.homeViewModel = homeViewModel
         super.init(nibName: nil, bundle: nil)
+    }
+
+    @objc func deleteButtonAction() {
+        homeViewModel.deleteAddress(cryptoModel, view: self)
     }
 
     override func viewDidLoad() {
@@ -69,6 +75,7 @@ class CustomBottomSheetViewController: UIViewController {
         customContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(copyValuePressed)))
         copyView.button.addTarget(self, action: #selector(copyValuePressed), for: .touchUpInside)
         shareView.button.addTarget(self, action: #selector(share), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(deleteButtonAction), for: .touchUpInside)
     }
 
     @objc func copyValuePressed() {

@@ -8,7 +8,17 @@
 import UIKit
 
 class AddCryptoAddressViewController: UIViewController {
-    private let addCryptoAddressViewModel = AddCryptoAddressViewModel()
+    let homeViewModel: HomeViewModel
+
+    init(homeViewModel: HomeViewModel) {
+        self.homeViewModel = homeViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     private let cryptoAddressField = CustomTextfield(placeholder: "Crypto Address")
     private let cryptoAddressTitle: UILabel = {
@@ -39,13 +49,13 @@ class AddCryptoAddressViewController: UIViewController {
 
     private lazy var addCryptoButton: UIButton = {
         var addCryptoButton = CustomButton(title: "Add")
-        addCryptoButton.backgroundColor = addCryptoAddressViewModel.addCryptoButtonColor
-        addCryptoButton.isEnabled = addCryptoAddressViewModel.addCryptoButtonEnabled
+        addCryptoButton.backgroundColor = homeViewModel.addCryptoButtonColor
+        addCryptoButton.isEnabled = homeViewModel.addCryptoButtonEnabled
         return addCryptoButton
     }()
 
     @objc func addCryptoAddress() {
-        addCryptoAddressViewModel.addCryptoAddress(in: self, with: navigationController!)
+        homeViewModel.addCryptoAddress(in: self, with: navigationController!)
     }
 
     override func viewDidLoad() {
@@ -78,14 +88,14 @@ extension AddCryptoAddressViewController {
 
     @objc func textfieldChanged(sender: UITextField) {
         if sender == nameField {
-            addCryptoAddressViewModel.name = nameField.text
+            homeViewModel.name = nameField.text
         } else if sender == exchangeField {
-            addCryptoAddressViewModel.exchange = exchangeField.text
+            homeViewModel.exchange = exchangeField.text
         } else {
-            addCryptoAddressViewModel.cryptoAddress = cryptoAddressField.text
+            homeViewModel.cryptoAddress = cryptoAddressField.text
         }
-        addCryptoButton.backgroundColor = addCryptoAddressViewModel.addCryptoButtonColor
-        addCryptoButton.isEnabled = addCryptoAddressViewModel.addCryptoButtonEnabled
+        addCryptoButton.backgroundColor = homeViewModel.addCryptoButtonColor
+        addCryptoButton.isEnabled = homeViewModel.addCryptoButtonEnabled
     }
 }
 

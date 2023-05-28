@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		211759462A1C93E20051B0F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 211759452A1C93E20051B0F7 /* GoogleService-Info.plist */; };
 		211759482A1C98F00051B0F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211759472A1C98F00051B0F7 /* ProfileViewController.swift */; };
-		2117594C2A1C9F0C0051B0F7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117594B2A1C9F0C0051B0F7 /* ProfileViewModel.swift */; };
 		21798E2D2A1B583400AD8135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E2C2A1B583400AD8135 /* AppDelegate.swift */; };
 		21798E2F2A1B583400AD8135 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E2E2A1B583400AD8135 /* SceneDelegate.swift */; };
 		21798E312A1B583400AD8135 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E302A1B583400AD8135 /* LoginViewController.swift */; };
@@ -32,7 +31,6 @@
 		85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */; };
 		85D6F04E2A1C0054004224DE /* EmptyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04D2A1C0054004224DE /* EmptyPage.swift */; };
 		85E1D0D82A1D41E4008D63EA /* AddCryptoAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0D72A1D41E4008D63EA /* AddCryptoAddressViewController.swift */; };
-		85E1D0DC2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0DB2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift */; };
 		85E1D0E02A1D5427008D63EA /* CryptoAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0DF2A1D5427008D63EA /* CryptoAddressModel.swift */; };
 		85E1D0E22A1D54F2008D63EA /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E12A1D54F2008D63EA /* CustomErrors.swift */; };
 		85E1D0E42A1DCE7A008D63EA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E32A1DCE7A008D63EA /* HomeViewModel.swift */; };
@@ -48,7 +46,6 @@
 		1D0CC5C8EA4DE017BC2DD05B /* Pods_Cryptix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cryptix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		211759452A1C93E20051B0F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		211759472A1C98F00051B0F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		2117594B2A1C9F0C0051B0F7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		21798E292A1B583400AD8135 /* Cryptix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21798E2C2A1B583400AD8135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21798E2E2A1B583400AD8135 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +67,6 @@
 		85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		85D6F04D2A1C0054004224DE /* EmptyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPage.swift; sourceTree = "<group>"; };
 		85E1D0D72A1D41E4008D63EA /* AddCryptoAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCryptoAddressViewController.swift; sourceTree = "<group>"; };
-		85E1D0DB2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCryptoAddressViewModel.swift; sourceTree = "<group>"; };
 		85E1D0DF2A1D5427008D63EA /* CryptoAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAddressModel.swift; sourceTree = "<group>"; };
 		85E1D0E12A1D54F2008D63EA /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		85E1D0E32A1DCE7A008D63EA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -193,8 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */,
-				2117594B2A1C9F0C0051B0F7 /* ProfileViewModel.swift */,
-				85E1D0DB2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift */,
 				85E1D0E32A1DCE7A008D63EA /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
@@ -341,9 +335,7 @@
 				211759482A1C98F00051B0F7 /* ProfileViewController.swift in Sources */,
 				85E1D0F02A20A9B4008D63EA /* CustomInfoContainer.swift in Sources */,
 				8513C3AD2A236AC1007D195E /* FirebaseApiService.swift in Sources */,
-				2117594C2A1C9F0C0051B0F7 /* ProfileViewModel.swift in Sources */,
 				85E1D0EC2A208B0D008D63EA /* CustomBottomSheetViewController.swift in Sources */,
-				85E1D0DC2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift in Sources */,
 				85E1D0D82A1D41E4008D63EA /* AddCryptoAddressViewController.swift in Sources */,
 				85E1D0F22A20C344008D63EA /* CustomToastMessage.swift in Sources */,
 				85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */,

@@ -8,7 +8,16 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    let profileViewModel = ProfileViewModel()
+    let homeViewModel:HomeViewModel
+    
+    init(homeViewModel: HomeViewModel) {
+        self.homeViewModel = homeViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private var logo: UIImageView = {
         var logo = UIImageView(image: UIImage(named: "cryptix"))
@@ -35,7 +44,7 @@ class ProfileViewController: UIViewController {
     }()
     
     @objc func signOut() {
-        profileViewModel.signout(in: self, with: navigationController!)
+        homeViewModel.signout(in: self, with: navigationController!)
     }
     
     override func viewDidLoad() {
@@ -43,9 +52,9 @@ class ProfileViewController: UIViewController {
         signOutButton.addTarget(self, action: #selector(signOut), for: .touchUpInside)
         Task {
             do {
-                await profileViewModel.getUserInfo(in: self)
-                emailField.text = profileViewModel.user?.email!
-                nameField.text = profileViewModel.user?.name
+                await homeViewModel.getUserInfo(in: self)
+                emailField.text = homeViewModel.user?.email!
+                nameField.text = homeViewModel.user?.name
             }
         }
         

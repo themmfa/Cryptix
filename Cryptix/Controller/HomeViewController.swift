@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
     }()
 
     @objc private func goToProfilePage() {
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
+        navigationController?.pushViewController(ProfileViewController(homeViewModel: homeViewModel), animated: true)
     }
 
     private var emptyPageImage = EmptyPage()
@@ -61,7 +61,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     @objc func addCryptoAction() {
-        navigationController?.pushViewController(AddCryptoAddressViewController(), animated: true)
+        navigationController?.pushViewController(AddCryptoAddressViewController(homeViewModel: homeViewModel), animated: true)
     }
 
     /// Nav bar setup
