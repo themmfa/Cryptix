@@ -18,6 +18,7 @@ class LoginViewModel: AuthenticationViewModel {
     var password: String?
     var name: String?
 
+    let firebaseApiService = FirebaseApiService()
     var isFormValid: Bool {
         return email?.isEmpty == false && password?.isEmpty == false
     }
@@ -34,7 +35,7 @@ class LoginViewModel: AuthenticationViewModel {
         let activityIndicatorController = CustomActivityIndicator()
         activityIndicatorController.startAnimating(in: view)
 
-        AuthenticationApiService().loginWithEmail(email: email!, password: password!) { _, error in
+        firebaseApiService.loginWithEmail(email: email!, password: password!) { _, error in
             if let error = error {
                 activityIndicatorController.stopAnimating()
                 CustomAlert.showAlert(title: "Error!", message: error.localizedDescription, viewController: view) { _ in
@@ -53,6 +54,8 @@ class RegisterViewModel: AuthenticationViewModel {
     var password: String?
     var name: String?
 
+    let firebaseApiService = FirebaseApiService()
+
     var isFormValid: Bool {
         return email?.isEmpty == false && password?.isEmpty == false && name?.isEmpty == false
     }
@@ -70,7 +73,7 @@ class RegisterViewModel: AuthenticationViewModel {
         activityIndicatorController.startAnimating(in: view)
 
         let user = UserModel(name: name, email: email, password: password)
-        AuthenticationApiService().registerUser(with: user, completion: { _, error in
+        firebaseApiService.registerUser(with: user, completion: { _, error in
             if let error = error {
                 activityIndicatorController.stopAnimating()
                 CustomAlert.showAlert(title: "Error", message: error.localizedDescription, viewController: view) { _ in

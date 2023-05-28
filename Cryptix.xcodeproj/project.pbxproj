@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		211759462A1C93E20051B0F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 211759452A1C93E20051B0F7 /* GoogleService-Info.plist */; };
 		211759482A1C98F00051B0F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211759472A1C98F00051B0F7 /* ProfileViewController.swift */; };
-		2117594A2A1C99B60051B0F7 /* ProfileApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211759492A1C99B60051B0F7 /* ProfileApiService.swift */; };
 		2117594C2A1C9F0C0051B0F7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117594B2A1C9F0C0051B0F7 /* ProfileViewModel.swift */; };
 		21798E2D2A1B583400AD8135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E2C2A1B583400AD8135 /* AppDelegate.swift */; };
 		21798E2F2A1B583400AD8135 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E2E2A1B583400AD8135 /* SceneDelegate.swift */; };
@@ -20,6 +19,7 @@
 		21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E482A1B5D0800AD8135 /* CustomTextField.swift */; };
 		21798E4B2A1B5E8300AD8135 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E4A2A1B5E8300AD8135 /* CustomButton.swift */; };
 		26BC74400EE0B920895AD83E /* Pods_Cryptix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CC5C8EA4DE017BC2DD05B /* Pods_Cryptix.framework */; };
+		8513C3AD2A236AC1007D195E /* FirebaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */; };
 		85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */; };
 		85D6F0342A1BF0DE004224DE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */; };
 		85D6F0382A1BF66D004224DE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85D6F0372A1BF66D004224DE /* .gitignore */; };
@@ -27,18 +27,15 @@
 		85D6F03F2A1BF77F004224DE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 85D6F03E2A1BF77F004224DE /* FirebaseFirestore */; };
 		85D6F0412A1BF77F004224DE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 85D6F0402A1BF77F004224DE /* FirebaseStorage */; };
 		85D6F0432A1BF7AE004224DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0422A1BF7AE004224DE /* HomeViewController.swift */; };
-		85D6F0462A1BF90F004224DE /* AuthenticationApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0452A1BF90F004224DE /* AuthenticationApiService.swift */; };
 		85D6F0482A1BF960004224DE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0472A1BF960004224DE /* UserModel.swift */; };
 		85D6F04A2A1BF9FF004224DE /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */; };
 		85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */; };
 		85D6F04E2A1C0054004224DE /* EmptyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F04D2A1C0054004224DE /* EmptyPage.swift */; };
 		85E1D0D82A1D41E4008D63EA /* AddCryptoAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0D72A1D41E4008D63EA /* AddCryptoAddressViewController.swift */; };
 		85E1D0DC2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0DB2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift */; };
-		85E1D0DE2A1D4D46008D63EA /* AddCryptoAddressApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0DD2A1D4D46008D63EA /* AddCryptoAddressApiService.swift */; };
 		85E1D0E02A1D5427008D63EA /* CryptoAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0DF2A1D5427008D63EA /* CryptoAddressModel.swift */; };
 		85E1D0E22A1D54F2008D63EA /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E12A1D54F2008D63EA /* CustomErrors.swift */; };
 		85E1D0E42A1DCE7A008D63EA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E32A1DCE7A008D63EA /* HomeViewModel.swift */; };
-		85E1D0E62A1DCF28008D63EA /* HomeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E52A1DCF28008D63EA /* HomeApiService.swift */; };
 		85E1D0E82A1DDAB3008D63EA /* CryptoAddressCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E72A1DDAB3008D63EA /* CryptoAddressCollectionViewController.swift */; };
 		85E1D0EA2A1DE303008D63EA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0E92A1DE303008D63EA /* CustomCell.swift */; };
 		85E1D0EC2A208B0D008D63EA /* CustomBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0EB2A208B0C008D63EA /* CustomBottomSheetViewController.swift */; };
@@ -51,7 +48,6 @@
 		1D0CC5C8EA4DE017BC2DD05B /* Pods_Cryptix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cryptix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		211759452A1C93E20051B0F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		211759472A1C98F00051B0F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		211759492A1C99B60051B0F7 /* ProfileApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileApiService.swift; sourceTree = "<group>"; };
 		2117594B2A1C9F0C0051B0F7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		21798E292A1B583400AD8135 /* Cryptix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21798E2C2A1B583400AD8135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,22 +60,20 @@
 		21798E482A1B5D0800AD8135 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21798E4A2A1B5E8300AD8135 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		70A6D9A9382CA122298AEA63 /* Pods-Cryptix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptix.release.xcconfig"; path = "Target Support Files/Pods-Cryptix/Pods-Cryptix.release.xcconfig"; sourceTree = "<group>"; };
+		8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseApiService.swift; sourceTree = "<group>"; };
 		85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationViewModel.swift; path = Cryptix/ViewModel/AuthenticationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		85D6F0372A1BF66D004224DE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		85D6F0422A1BF7AE004224DE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		85D6F0452A1BF90F004224DE /* AuthenticationApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationApiService.swift; sourceTree = "<group>"; };
 		85D6F0472A1BF960004224DE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = Cryptix/Model/UserModel.swift; sourceTree = SOURCE_ROOT; };
 		85D6F0492A1BF9FF004224DE /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		85D6F04B2A1BFA1E004224DE /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		85D6F04D2A1C0054004224DE /* EmptyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPage.swift; sourceTree = "<group>"; };
 		85E1D0D72A1D41E4008D63EA /* AddCryptoAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCryptoAddressViewController.swift; sourceTree = "<group>"; };
 		85E1D0DB2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCryptoAddressViewModel.swift; sourceTree = "<group>"; };
-		85E1D0DD2A1D4D46008D63EA /* AddCryptoAddressApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCryptoAddressApiService.swift; sourceTree = "<group>"; };
 		85E1D0DF2A1D5427008D63EA /* CryptoAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAddressModel.swift; sourceTree = "<group>"; };
 		85E1D0E12A1D54F2008D63EA /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		85E1D0E32A1DCE7A008D63EA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		85E1D0E52A1DCF28008D63EA /* HomeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeApiService.swift; sourceTree = "<group>"; };
 		85E1D0E72A1DDAB3008D63EA /* CryptoAddressCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAddressCollectionViewController.swift; sourceTree = "<group>"; };
 		85E1D0E92A1DE303008D63EA /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		85E1D0EB2A208B0C008D63EA /* CustomBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -190,10 +184,7 @@
 		85D6F0442A1BF8FD004224DE /* API */ = {
 			isa = PBXGroup;
 			children = (
-				85D6F0452A1BF90F004224DE /* AuthenticationApiService.swift */,
-				211759492A1C99B60051B0F7 /* ProfileApiService.swift */,
-				85E1D0DD2A1D4D46008D63EA /* AddCryptoAddressApiService.swift */,
-				85E1D0E52A1DCF28008D63EA /* HomeApiService.swift */,
+				8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -332,8 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85E1D0DE2A1D4D46008D63EA /* AddCryptoAddressApiService.swift in Sources */,
-				85D6F0462A1BF90F004224DE /* AuthenticationApiService.swift in Sources */,
 				21798E312A1B583400AD8135 /* LoginViewController.swift in Sources */,
 				21798E2D2A1B583400AD8135 /* AppDelegate.swift in Sources */,
 				21798E4B2A1B5E8300AD8135 /* CustomButton.swift in Sources */,
@@ -351,14 +340,13 @@
 				85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */,
 				211759482A1C98F00051B0F7 /* ProfileViewController.swift in Sources */,
 				85E1D0F02A20A9B4008D63EA /* CustomInfoContainer.swift in Sources */,
+				8513C3AD2A236AC1007D195E /* FirebaseApiService.swift in Sources */,
 				2117594C2A1C9F0C0051B0F7 /* ProfileViewModel.swift in Sources */,
 				85E1D0EC2A208B0D008D63EA /* CustomBottomSheetViewController.swift in Sources */,
 				85E1D0DC2A1D4A53008D63EA /* AddCryptoAddressViewModel.swift in Sources */,
 				85E1D0D82A1D41E4008D63EA /* AddCryptoAddressViewController.swift in Sources */,
 				85E1D0F22A20C344008D63EA /* CustomToastMessage.swift in Sources */,
-				85E1D0E62A1DCF28008D63EA /* HomeApiService.swift in Sources */,
 				85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */,
-				2117594A2A1C99B60051B0F7 /* ProfileApiService.swift in Sources */,
 				85E1D0E02A1D5427008D63EA /* CryptoAddressModel.swift in Sources */,
 				85D6F0482A1BF960004224DE /* UserModel.swift in Sources */,
 			);

@@ -10,7 +10,7 @@ import UIKit
 class HomeViewModel {
     var addressList: [CryptoAddressModel?] = []
 
-    private var homeApiService = HomeApiService()
+    private var firebaseApiService = FirebaseApiService()
 
     func getCryptoAddresses(in view: UIViewController, layout: @escaping () -> Void, collectionView: UICollectionView) {
         let activityIndicatorController = CustomActivityIndicator()
@@ -18,7 +18,7 @@ class HomeViewModel {
 
         Task {
             do {
-                addressList = try await homeApiService.getCryptoAddresses()
+                addressList = try await firebaseApiService.getCryptoAddresses()
                 DispatchQueue.main.async {
                     activityIndicatorController.stopAnimating()
                     layout()

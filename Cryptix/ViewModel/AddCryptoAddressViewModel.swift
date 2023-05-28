@@ -8,7 +8,7 @@
 import UIKit
 
 class AddCryptoAddressViewModel {
-    private let addCryptoAddressApiService = AddCryptoAddressApiService()
+    private let firebaseApiService = FirebaseApiService()
 
     var name: String?
     var exchange: String?
@@ -32,7 +32,7 @@ class AddCryptoAddressViewModel {
 
         Task {
             do {
-                try await addCryptoAddressApiService.addCryptoAddress(with: CryptoAddressModel(name: name, exchange: exchange, cryptoAddress: cryptoAddress))
+                try await firebaseApiService.addCryptoAddress(with: CryptoAddressModel(name: name, exchange: exchange, cryptoAddress: cryptoAddress))
                 DispatchQueue.main.async {
                     activityIndicatorController.stopAnimating()
                     CustomAlert.showAlert(title: "Success", message: "Crypto address successfully added.", viewController: view) { _ in

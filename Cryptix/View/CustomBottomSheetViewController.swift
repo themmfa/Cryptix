@@ -35,7 +35,7 @@ class CustomBottomSheetViewController: UIViewController {
         // Present the activity view controller
         if let popoverPresentationController = shareActivityViewController.popoverPresentationController {
             popoverPresentationController.sourceView = view
-            popoverPresentationController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+            popoverPresentationController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY / 2, width: 0, height: 0)
             popoverPresentationController.permittedArrowDirections = []
         }
 
@@ -44,7 +44,17 @@ class CustomBottomSheetViewController: UIViewController {
 
     private var editButton: UIButton = {
         var editButton = CustomButton(title: "Edit")
+        editButton.isEnabled = true
+        editButton.backgroundColor = .black
         return editButton
+    }()
+
+    private var deleteButton: UIButton = {
+        var deleteButton = UIButton()
+        var image = UIImage(systemName: "trash")
+        deleteButton.tintColor = .black
+        deleteButton.setImage(image, for: .normal)
+        return deleteButton
     }()
 
     init(cryptoModel: CryptoAddressModel) {
@@ -83,6 +93,12 @@ extension CustomBottomSheetViewController {
 
         view.addSubview(shareView)
         shareView.anchor(top: copyView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 24, paddingLeft: 12, paddingRight: 12)
+
+        let stackView = UIStackView(arrangedSubviews: [editButton, deleteButton])
+        stackView.axis = .horizontal
+        stackView.spacing = 24
+        view.addSubview(stackView)
+        stackView.anchor(top: shareView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 24, paddingLeft: 12, paddingRight: 12)
     }
 }
 

@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileViewModel {
-    let profileApiService = ProfileApiService()
+    let firebaseApiService = FirebaseApiService()
     
     var user: UserModel?
     
@@ -17,7 +17,7 @@ class ProfileViewModel {
         await activityIndicatorController.startAnimating(in: view)
             
         do {
-            self.user = try await self.profileApiService.getUserInfo()
+            self.user = try await self.firebaseApiService.getUserInfo()
             await activityIndicatorController.stopAnimating()
         } catch {
             await activityIndicatorController.stopAnimating()
@@ -31,7 +31,7 @@ class ProfileViewModel {
         
         Task {
             do {
-                try await self.profileApiService.signOut()
+                try await self.firebaseApiService.signOut()
                 await activityIndicatorController.stopAnimating()
                 await navigationController.setViewControllers([LoginViewController()], animated: true)
             } catch {
