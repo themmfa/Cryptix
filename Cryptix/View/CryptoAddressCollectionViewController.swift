@@ -14,6 +14,7 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
 
     init(collectionViewLayout: UICollectionViewLayout, homeViewModel: HomeViewModel) {
         self.homeViewModel = homeViewModel
+
         super.init(collectionViewLayout: collectionViewLayout)
     }
 
@@ -49,6 +50,7 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
         let detailViewController = CustomBottomSheetViewController(cryptoModel: homeViewModel.addressList[indexPath.row]!, homeViewModel: homeViewModel)
 
         detailViewController.modalPresentationStyle = .pageSheet
+        
         if let sheet = detailViewController.sheetPresentationController {
             sheet.detents = [.custom(resolver: { _ in
                 300
@@ -58,11 +60,10 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
         }
 
         // MARK: - By presenting the UIActivityViewController from the window's root view controller, we avoid potential issues related to the detached view controller. This approach ensures that the view controller presenting the activity view controller is always a part of the view hierarchy.
-
+        
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let rootViewController = windowScene.windows.first?.rootViewController
-        {
-            rootViewController.present(detailViewController, animated: true, completion: nil)
+           let visibleViewController = windowScene.windows.first?.visibleViewController {
+            visibleViewController.present(detailViewController, animated: true, completion: nil)
         }
     }
 }
@@ -70,5 +71,32 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
 extension CryptoAddressCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width, height: 60)
+    }
+}
+
+extension UIWindow {
+    var visibleViewController: UIViewController? {
+        if let rootViewController = self.rootViewController {
+            return UIWindow.getVisibleViewController(from: rootViewController)
+        }
+        return nil
+    }
+    
+    private static func getVisibleViewController(from viewController: UIViewController) -> UIViewController {
+        if let navigationController = viewController as? UINavigationController {
+            return UIWindow.getVisibleViewController(from: navigationController.visibleViewController!)
+        }
+        
+        if let tabBarController = viewController as? UITabBarController {
+            if let selectedViewController = tabBarController.selectedViewController {
+                return UIWindow.getVisibleViewController(from: selectedViewController)
+            }
+        }
+        
+        if let presentedViewController = viewController.presentedViewController {
+            return UIWindow.getVisibleViewController(from: presentedViewController)
+        }
+        
+        return viewController
     }
 }

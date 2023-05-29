@@ -72,7 +72,6 @@ class CustomBottomSheetViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         layout()
-        modalPresentationStyle = .overCurrentContext
         modalTransitionStyle = .coverVertical
         customContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(copyValuePressed)))
         copyView.button.addTarget(self, action: #selector(copyValuePressed), for: .touchUpInside)

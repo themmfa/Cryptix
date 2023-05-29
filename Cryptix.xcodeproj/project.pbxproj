@@ -17,7 +17,6 @@
 		21798E472A1B5ABE00AD8135 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E462A1B5ABE00AD8135 /* Extensions.swift */; };
 		21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E482A1B5D0800AD8135 /* CustomTextField.swift */; };
 		21798E4B2A1B5E8300AD8135 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E4A2A1B5E8300AD8135 /* CustomButton.swift */; };
-		26BC74400EE0B920895AD83E /* Pods_Cryptix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CC5C8EA4DE017BC2DD05B /* Pods_Cryptix.framework */; };
 		8513C3AD2A236AC1007D195E /* FirebaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */; };
 		85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */; };
 		85D6F0342A1BF0DE004224DE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */; };
@@ -42,8 +41,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		065C7A533B4FBC6E267A9625 /* Pods-Cryptix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptix.debug.xcconfig"; path = "Target Support Files/Pods-Cryptix/Pods-Cryptix.debug.xcconfig"; sourceTree = "<group>"; };
-		1D0CC5C8EA4DE017BC2DD05B /* Pods_Cryptix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cryptix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		211759452A1C93E20051B0F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		211759472A1C98F00051B0F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		21798E292A1B583400AD8135 /* Cryptix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +53,6 @@
 		21798E462A1B5ABE00AD8135 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		21798E482A1B5D0800AD8135 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21798E4A2A1B5E8300AD8135 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		70A6D9A9382CA122298AEA63 /* Pods-Cryptix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptix.release.xcconfig"; path = "Target Support Files/Pods-Cryptix/Pods-Cryptix.release.xcconfig"; sourceTree = "<group>"; };
 		8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseApiService.swift; sourceTree = "<group>"; };
 		85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationViewModel.swift; path = Cryptix/ViewModel/AuthenticationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +81,6 @@
 				85D6F03D2A1BF77F004224DE /* FirebaseAuth in Frameworks */,
 				85D6F03F2A1BF77F004224DE /* FirebaseFirestore in Frameworks */,
 				85D6F0412A1BF77F004224DE /* FirebaseStorage in Frameworks */,
-				26BC74400EE0B920895AD83E /* Pods_Cryptix.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +94,6 @@
 				21798E2B2A1B583400AD8135 /* Cryptix */,
 				21798E2A2A1B583400AD8135 /* Products */,
 				2910436CF0EAA113C8ABE701 /* Pods */,
-				9EB653338833AAED3886AB4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,8 +165,6 @@
 		2910436CF0EAA113C8ABE701 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				065C7A533B4FBC6E267A9625 /* Pods-Cryptix.debug.xcconfig */,
-				70A6D9A9382CA122298AEA63 /* Pods-Cryptix.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -203,14 +195,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9EB653338833AAED3886AB4C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1D0CC5C8EA4DE017BC2DD05B /* Pods_Cryptix.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,7 +202,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21798E3D2A1B583500AD8135 /* Build configuration list for PBXNativeTarget "Cryptix" */;
 			buildPhases = (
-				309DF082CADD2BD7CE718C97 /* [CP] Check Pods Manifest.lock */,
 				21798E252A1B583400AD8135 /* Sources */,
 				21798E262A1B583400AD8135 /* Frameworks */,
 				21798E272A1B583400AD8135 /* Resources */,
@@ -286,31 +269,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		309DF082CADD2BD7CE718C97 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Cryptix-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		21798E252A1B583400AD8135 /* Sources */ = {
@@ -474,7 +432,6 @@
 		};
 		21798E3E2A1B583500AD8135 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 065C7A533B4FBC6E267A9625 /* Pods-Cryptix.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -502,7 +459,6 @@
 		};
 		21798E3F2A1B583500AD8135 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70A6D9A9382CA122298AEA63 /* Pods-Cryptix.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

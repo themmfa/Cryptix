@@ -52,6 +52,7 @@ class CustomCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
+        translatesAutoresizingMaskIntoConstraints = true
         layer.borderColor = UIColor.gray.cgColor
         layer.borderWidth = 0.5
         layer.cornerRadius = 4
@@ -77,5 +78,7 @@ extension CustomCell {
 
         addSubview(stackView)
         stackView.anchor(top: topAnchor, left: imageView.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingLeft: 12, paddingRight: 12)
+        
+        
     }
 }
