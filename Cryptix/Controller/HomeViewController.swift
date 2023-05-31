@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
 
     private lazy var addCryptoVC = AddCryptoAddressViewController(homeViewModel: homeViewModel)
 
+    private lazy var profileVC = ProfileViewController(homeViewModel: homeViewModel)
+
     private lazy var profileButton: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .default)
@@ -21,11 +23,7 @@ class HomeViewController: UIViewController {
         return profileButton
     }()
 
-    private lazy var cryptoAddressCollectionView: UICollectionViewController = {
-        let layout = UICollectionViewFlowLayout()
-        var cryptoAddressCollectionView = CryptoAddressCollectionViewController(collectionViewLayout: layout, homeViewModel: homeViewModel)
-        return cryptoAddressCollectionView
-    }()
+    private lazy var cryptoAddressCollectionView = CryptoAddressCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout(), homeViewModel: homeViewModel)
 
     // TODO: Fix the issue and add to left bar item
     private var menuButton: UIBarButtonItem = {
@@ -37,7 +35,7 @@ class HomeViewController: UIViewController {
     }()
 
     @objc private func goToProfilePage() {
-        navigationController?.pushViewController(ProfileViewController(homeViewModel: homeViewModel), animated: true)
+        navigationController?.pushViewController(profileVC, animated: true)
     }
 
     private var emptyPageImage = EmptyPage()
@@ -102,6 +100,21 @@ extension HomeViewController {
 }
 
 extension HomeViewController: HomeViewModelDelegate {
+    func signOut(_ response: ApiResponse) {
+        if response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.profileVC.activityIndicatorController.stopAnimating()
+                self?.navigationController?.setViewControllers([LoginViewController()], animated: true)
+            }
+        }
+        if !response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.profileVC.activityIndicatorController.stopAnimating()
+                CustomAlert.showAlert(title: "Error", message: response.errorMessage ?? "", viewController: self!.profileVC) { _ in }
+            }
+        }
+    }
+
     func addCrypto(_ response: ApiResponse) {
         if response.isSuccess {
             DispatchQueue.main.async { [weak self] in
@@ -120,7 +133,22 @@ extension HomeViewController: HomeViewModelDelegate {
     }
 
     func deleteCrypto(_ response: ApiResponse) {
-        //
+        if response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.cryptoAddressCollectionView.bottomSheetView!.activityIndicatorController.stopAnimating()
+                CustomAlert.showAlert(title: "Success", message: "Crypto address deleted successfully!", viewController: self!.cryptoAddressCollectionView.bottomSheetView!) { _ in
+
+                    self?.cryptoAddressCollectionView.collectionView.reloadData()
+                    self!.cryptoAddressCollectionView.bottomSheetView!.dismiss(animated: true)
+                }
+            }
+        }
+        if !response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.cryptoAddressCollectionView.bottomSheetView!.activityIndicatorController.stopAnimating()
+                CustomAlert.showAlert(title: "Error", message: response.errorMessage ?? "", viewController: self!.cryptoAddressCollectionView.bottomSheetView!) { _ in }
+            }
+        }
     }
 
     func getCryptoAddress(_ response: ApiResponse) {
@@ -138,6 +166,18 @@ extension HomeViewController: HomeViewModelDelegate {
     }
 
     func getUserInfo(_ response: ApiResponse) {
-        //
+        if response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.profileVC.activityIndicatorController.stopAnimating()
+                self?.profileVC.emailField.text = self?.homeViewModel.user?.email!
+                self?.profileVC.nameField.text = self?.homeViewModel.user?.name
+            }
+        }
+        if !response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.profileVC.activityIndicatorController.stopAnimating()
+                CustomAlert.showAlert(title: "Error", message: "Something went wrong", viewController: self!.profileVC) { _ in }
+            }
+        }
     }
 }

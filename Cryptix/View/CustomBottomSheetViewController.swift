@@ -22,6 +22,8 @@ class CustomBottomSheetViewController: UIViewController {
     private var copyView = CustomCopyShare(text: "Copy", imageVar: "doc.on.doc")
 
     private var shareView = CustomCopyShare(text: "Share", imageVar: "square.and.arrow.up")
+    
+    lazy var activityIndicatorController = CustomActivityIndicator()
 
     @objc private func share(_ sender: UIButton) {
         let items: [Any] = [cryptoModel.cryptoAddress!]

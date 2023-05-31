@@ -8,13 +8,14 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    let homeViewModel:HomeViewModel
+    let homeViewModel: HomeViewModel
     
     init(homeViewModel: HomeViewModel) {
         self.homeViewModel = homeViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -25,13 +26,13 @@ class ProfileViewController: UIViewController {
         return logo
     }()
     
-    private lazy var emailField: UITextField = {
+    lazy var emailField: UITextField = {
         var emailField = CustomTextfield(placeholder: "")
         emailField.isUserInteractionEnabled = false
         return emailField
     }()
     
-    private lazy var nameField: UITextField = {
+    lazy var nameField: UITextField = {
         var nameField = CustomTextfield(placeholder: "")
         nameField.isUserInteractionEnabled = false
         return nameField
@@ -44,20 +45,16 @@ class ProfileViewController: UIViewController {
     }()
     
     @objc func signOut() {
-        homeViewModel.signout(in: self, with: navigationController!)
+        homeViewModel.signout()
     }
+    
+    lazy var activityIndicatorController = CustomActivityIndicator()
     
     override func viewDidLoad() {
         view.backgroundColor = .white
         signOutButton.addTarget(self, action: #selector(signOut), for: .touchUpInside)
-        Task {
-            do {
-                await homeViewModel.getUserInfo(in: self)
-                emailField.text = homeViewModel.user?.email!
-                nameField.text = homeViewModel.user?.name
-            }
-        }
-        
+        activityIndicatorController.startAnimating(in: self)
+        homeViewModel.getUserInfo()
         layout()
     }
 }

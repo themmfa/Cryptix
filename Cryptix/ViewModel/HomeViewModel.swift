@@ -12,6 +12,7 @@ protocol HomeViewModelDelegate {
     func deleteCrypto(_ response: ApiResponse)
     func getCryptoAddress(_ response: ApiResponse)
     func getUserInfo(_ response: ApiResponse)
+    func signOut(_ response: ApiResponse)
 }
 
 class HomeViewModel {
@@ -51,25 +52,14 @@ class HomeViewModel {
     }
 
     func deleteAddress(_ cryptoModel: CryptoAddressModel, view: UIViewController) {
-        let activityIndicatorController = CustomActivityIndicator()
-        activityIndicatorController.startAnimating(in: view)
-
         Task {
             do {
                 let cryptoList = try await firebaseApiService.deleteCryptoAddress(with: cryptoModel)
-                DispatchQueue.main.async { [weak self] in
-                    activityIndicatorController.stopAnimating()
-                    CustomAlert.showAlert(title: "Success", message: "Crypto address deleted successfully!", viewController: view) { _ in
-                        self?.addressList = cryptoList
-                        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
-                        view.dismiss(animated: true)
-                    }
-                }
+                self.addressList = cryptoList
+                delegate?.deleteCrypto(ApiResponse(isSuccess: true))
+
             } catch {
-                DispatchQueue.main.async {
-                    activityIndicatorController.stopAnimating()
-                    CustomAlert.showAlert(title: "Error", message: error.localizedDescription, viewController: view) { _ in }
-                }
+                delegate?.deleteCrypto(ApiResponse(errorMessage: error.localizedDescription, isSuccess: false))
             }
         }
     }
@@ -86,31 +76,26 @@ class HomeViewModel {
         }
     }
 
-    func getUserInfo(in view: UIViewController) async {
-        let activityIndicatorController = await CustomActivityIndicator()
-        await activityIndicatorController.startAnimating(in: view)
+    func getUserInfo() {
+        Task {
+            do {
+                user = try await firebaseApiService.getUserInfo()
+                delegate?.getUserInfo(ApiResponse(isSuccess: true))
 
-        do {
-            user = try await firebaseApiService.getUserInfo()
-            await activityIndicatorController.stopAnimating()
-        } catch {
-            await activityIndicatorController.stopAnimating()
-            CustomAlert.showAlert(title: "Error", message: error.localizedDescription, viewController: view) { _ in }
+            } catch {
+                delegate?.getUserInfo(ApiResponse(errorMessage: error.localizedDescription, isSuccess: false))
+            }
         }
     }
 
-    func signout(in view: UIViewController, with navigationController: UINavigationController) {
-        let activityIndicatorController = CustomActivityIndicator()
-        activityIndicatorController.startAnimating(in: view)
-
+    func signout() {
         Task {
             do {
                 try await self.firebaseApiService.signOut()
-                await activityIndicatorController.stopAnimating()
-                await navigationController.setViewControllers([LoginViewController()], animated: true)
+                delegate?.signOut(ApiResponse(isSuccess: true))
+
             } catch {
-                await activityIndicatorController.stopAnimating()
-                CustomAlert.showAlert(title: "Error", message: error.localizedDescription, viewController: view) { _ in }
+                delegate?.signOut(ApiResponse(errorMessage: error.localizedDescription, isSuccess: false))
             }
         }
     }

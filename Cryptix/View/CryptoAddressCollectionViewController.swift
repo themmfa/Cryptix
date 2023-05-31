@@ -12,6 +12,8 @@ private let reuseIdentifier = "Cell"
 class CryptoAddressCollectionViewController: UICollectionViewController {
     let homeViewModel: HomeViewModel
 
+    var bottomSheetView: CustomBottomSheetViewController?
+
     init(collectionViewLayout: UICollectionViewLayout, homeViewModel: HomeViewModel) {
         self.homeViewModel = homeViewModel
 
@@ -47,11 +49,11 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailViewController = CustomBottomSheetViewController(cryptoModel: homeViewModel.addressList[indexPath.row]!, homeViewModel: homeViewModel)
+        self.bottomSheetView = CustomBottomSheetViewController(cryptoModel: homeViewModel.addressList[indexPath.row]!, homeViewModel: homeViewModel)
 
-        detailViewController.modalPresentationStyle = .pageSheet
-        
-        if let sheet = detailViewController.sheetPresentationController {
+        bottomSheetView!.modalPresentationStyle = .pageSheet
+
+        if let sheet = bottomSheetView!.sheetPresentationController {
             sheet.detents = [.custom(resolver: { _ in
                 300
             })]
@@ -60,10 +62,11 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
         }
 
         // MARK: - By presenting the UIActivityViewController from the window's root view controller, we avoid potential issues related to the detached view controller. This approach ensures that the view controller presenting the activity view controller is always a part of the view hierarchy.
-        
+
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let visibleViewController = windowScene.windows.first?.visibleViewController {
-            visibleViewController.present(detailViewController, animated: true, completion: nil)
+           let visibleViewController = windowScene.windows.first?.visibleViewController
+        {
+            visibleViewController.present(bottomSheetView!, animated: true, completion: nil)
         }
     }
 }
@@ -76,27 +79,27 @@ extension CryptoAddressCollectionViewController: UICollectionViewDelegateFlowLay
 
 extension UIWindow {
     var visibleViewController: UIViewController? {
-        if let rootViewController = self.rootViewController {
+        if let rootViewController = rootViewController {
             return UIWindow.getVisibleViewController(from: rootViewController)
         }
         return nil
     }
-    
+
     private static func getVisibleViewController(from viewController: UIViewController) -> UIViewController {
         if let navigationController = viewController as? UINavigationController {
             return UIWindow.getVisibleViewController(from: navigationController.visibleViewController!)
         }
-        
+
         if let tabBarController = viewController as? UITabBarController {
             if let selectedViewController = tabBarController.selectedViewController {
                 return UIWindow.getVisibleViewController(from: selectedViewController)
             }
         }
-        
+
         if let presentedViewController = viewController.presentedViewController {
             return UIWindow.getVisibleViewController(from: presentedViewController)
         }
-        
+
         return viewController
     }
 }
