@@ -47,15 +47,19 @@ class HomeViewController: UIViewController {
         return button
     }()
 
+    let activityIndicatorController = CustomActivityIndicator()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        homeViewModel.delegate = self
         setupNavBar()
         addCryptoButton.addTarget(self, action: #selector(addCryptoAction), for: .touchUpInside)
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        homeViewModel.getCryptoAddresses(in: self, layout: layout, collectionView: cryptoAddressCollectionView.collectionView)
+        activityIndicatorController.startAnimating(in: self)
+        homeViewModel.getCryptoAddresses()
     }
 }
 
@@ -92,5 +96,33 @@ extension HomeViewController {
 
         view.addSubview(addCryptoButton)
         addCryptoButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 24, paddingBottom: 24, paddingRight: 24)
+    }
+}
+
+extension HomeViewController: HomeViewModelDelegate {
+    func addCrypto(_ response: ApiResponse?) {
+        //
+    }
+
+    func deleteCrypto(_ response: ApiResponse) {
+        //
+    }
+
+    func getCryptoAddress(_ response: ApiResponse) {
+        DispatchQueue.main.sync { [weak self] in
+            if response.isSuccess {
+                self?.activityIndicatorController.stopAnimating()
+                self?.layout()
+                self?.cryptoAddressCollectionView.collectionView.reloadData()
+            }
+            if !response.isSuccess {
+                self?.activityIndicatorController.stopAnimating()
+                CustomAlert.showAlert(title: "Error", message: response.errorMessage ?? "", viewController: self!) { _ in }
+            }
+        }
+    }
+
+    func getUserInfo(_ response: ApiResponse) {
+        //
     }
 }

@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol HomeViewModelDelegate {
+    func addCrypto(_ response: ApiResponse?)
+    func deleteCrypto(_ response: ApiResponse)
+    func getCryptoAddress(_ response: ApiResponse)
+    func getUserInfo(_ response: ApiResponse)
+}
+
 class HomeViewModel {
     var addressList: [CryptoAddressModel?] = []
     var user: UserModel?
@@ -14,6 +21,8 @@ class HomeViewModel {
     var name: String?
     var exchange: String?
     var cryptoAddress: String?
+
+    var delegate: HomeViewModelDelegate?
 
     private var firebaseApiService = FirebaseApiService()
 
@@ -36,6 +45,7 @@ class HomeViewModel {
         Task {
             do {
                 try await firebaseApiService.addCryptoAddress(with: CryptoAddressModel(name: name, exchange: exchange, cryptoAddress: cryptoAddress))
+
                 DispatchQueue.main.async {
                     activityIndicatorController.stopAnimating()
                     CustomAlert.showAlert(title: "Success", message: "Crypto address successfully added.", viewController: view) { _ in
@@ -75,24 +85,14 @@ class HomeViewModel {
         }
     }
 
-    func getCryptoAddresses(in view: UIViewController, layout: @escaping () -> Void, collectionView: UICollectionView) {
-        let activityIndicatorController = CustomActivityIndicator()
-        activityIndicatorController.startAnimating(in: view)
-
+    func getCryptoAddresses() {
         Task {
             do {
                 addressList = try await firebaseApiService.getCryptoAddresses()
-                DispatchQueue.main.async {
-                    activityIndicatorController.stopAnimating()
-                    layout()
-                    NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
-                }
+                delegate?.getCryptoAddress(ApiResponse(isSuccess: true))
 
             } catch {
-                DispatchQueue.main.async {
-                    activityIndicatorController.stopAnimating()
-                    CustomAlert.showAlert(title: "Error", message: error.localizedDescription, viewController: view) { _ in }
-                }
+                delegate?.getCryptoAddress(ApiResponse(errorMessage: error.localizedDescription, isSuccess: false))
             }
         }
     }

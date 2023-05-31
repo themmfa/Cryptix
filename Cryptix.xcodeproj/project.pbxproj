@@ -38,6 +38,7 @@
 		85E1D0EC2A208B0D008D63EA /* CustomBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0EB2A208B0C008D63EA /* CustomBottomSheetViewController.swift */; };
 		85E1D0F02A20A9B4008D63EA /* CustomInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0EF2A20A9B4008D63EA /* CustomInfoContainer.swift */; };
 		85E1D0F22A20C344008D63EA /* CustomToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0F12A20C344008D63EA /* CustomToastMessage.swift */; };
+		85F25A052A273B2F009BCE00 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F25A042A273B2F009BCE00 /* ApiResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		85E1D0EB2A208B0C008D63EA /* CustomBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomSheetViewController.swift; sourceTree = "<group>"; };
 		85E1D0EF2A20A9B4008D63EA /* CustomInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoContainer.swift; sourceTree = "<group>"; };
 		85E1D0F12A20C344008D63EA /* CustomToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToastMessage.swift; sourceTree = "<group>"; };
+		85F25A042A273B2F009BCE00 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				85D6F0472A1BF960004224DE /* UserModel.swift */,
 				85E1D0DF2A1D5427008D63EA /* CryptoAddressModel.swift */,
+				85F25A042A273B2F009BCE00 /* ApiResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				85E1D0E22A1D54F2008D63EA /* CustomErrors.swift in Sources */,
 				85D6F04E2A1C0054004224DE /* EmptyPage.swift in Sources */,
 				21798E472A1B5ABE00AD8135 /* Extensions.swift in Sources */,
+				85F25A052A273B2F009BCE00 /* ApiResponse.swift in Sources */,
 				21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */,
 				85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */,
 				211759482A1C98F00051B0F7 /* ProfileViewController.swift in Sources */,
