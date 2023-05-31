@@ -20,6 +20,8 @@ class AddCryptoAddressViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    let activityIndicatorController = CustomActivityIndicator()
+
     private let cryptoAddressField = CustomTextfield(placeholder: "Crypto Address")
     private let cryptoAddressTitle: UILabel = {
         var cryptoAddressTitle = UILabel()
@@ -55,6 +57,7 @@ class AddCryptoAddressViewController: UIViewController {
     }()
 
     @objc func addCryptoAddress() {
+        activityIndicatorController.startAnimating(in: self)
         homeViewModel.addCryptoAddress(in: self, with: navigationController!)
     }
 

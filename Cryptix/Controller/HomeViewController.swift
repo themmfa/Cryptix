@@ -10,6 +10,8 @@ import UIKit
 class HomeViewController: UIViewController {
     private let homeViewModel = HomeViewModel()
 
+    private lazy var addCryptoVC = AddCryptoAddressViewController(homeViewModel: homeViewModel)
+
     private lazy var profileButton: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .default)
@@ -65,7 +67,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     @objc func addCryptoAction() {
-        navigationController?.pushViewController(AddCryptoAddressViewController(homeViewModel: homeViewModel), animated: true)
+        navigationController?.pushViewController(addCryptoVC, animated: true)
     }
 
     /// Nav bar setup
@@ -100,8 +102,21 @@ extension HomeViewController {
 }
 
 extension HomeViewController: HomeViewModelDelegate {
-    func addCrypto(_ response: ApiResponse?) {
-        //
+    func addCrypto(_ response: ApiResponse) {
+        if response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.addCryptoVC.activityIndicatorController.stopAnimating()
+                CustomAlert.showAlert(title: "Success", message: "Crypto address successfully added.", viewController: self!.addCryptoVC) { _ in
+                    self?.addCryptoVC.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+        if !response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.addCryptoVC.activityIndicatorController.stopAnimating()
+                CustomAlert.showAlert(title: "Success", message: "Crypto address successfully added.", viewController: self!.addCryptoVC) { _ in }
+            }
+        }
     }
 
     func deleteCrypto(_ response: ApiResponse) {

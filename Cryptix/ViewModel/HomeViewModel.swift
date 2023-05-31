@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeViewModelDelegate {
-    func addCrypto(_ response: ApiResponse?)
+    func addCrypto(_ response: ApiResponse)
     func deleteCrypto(_ response: ApiResponse)
     func getCryptoAddress(_ response: ApiResponse)
     func getUserInfo(_ response: ApiResponse)
@@ -39,24 +39,13 @@ class HomeViewModel {
     }
 
     func addCryptoAddress(in view: UIViewController, with navigationController: UINavigationController) {
-        let activityIndicatorController = CustomActivityIndicator()
-        activityIndicatorController.startAnimating(in: view)
-
         Task {
             do {
                 try await firebaseApiService.addCryptoAddress(with: CryptoAddressModel(name: name, exchange: exchange, cryptoAddress: cryptoAddress))
+                delegate?.addCrypto(ApiResponse(isSuccess: true))
 
-                DispatchQueue.main.async {
-                    activityIndicatorController.stopAnimating()
-                    CustomAlert.showAlert(title: "Success", message: "Crypto address successfully added.", viewController: view) { _ in
-                        navigationController.popViewController(animated: true)
-                    }
-                }
             } catch {
-                DispatchQueue.main.async {
-                    activityIndicatorController.stopAnimating()
-                    CustomAlert.showAlert(title: "Success", message: "Crypto address successfully added.", viewController: view) { _ in }
-                }
+                delegate?.addCrypto(ApiResponse(errorMessage: error.localizedDescription, isSuccess: false))
             }
         }
     }
