@@ -137,8 +137,8 @@ extension HomeViewController: HomeViewModelDelegate {
             DispatchQueue.main.async { [weak self] in
                 self?.cryptoAddressCollectionView.bottomSheetView!.activityIndicatorController.stopAnimating()
                 CustomAlert.showAlert(title: "Success", message: "Crypto address deleted successfully!", viewController: self!.cryptoAddressCollectionView.bottomSheetView!) { _ in
-
                     self?.cryptoAddressCollectionView.collectionView.reloadData()
+                    self?.layout()
                     self!.cryptoAddressCollectionView.bottomSheetView!.dismiss(animated: true)
                 }
             }
