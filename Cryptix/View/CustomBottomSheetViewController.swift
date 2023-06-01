@@ -10,6 +10,12 @@ import UIKit
 class CustomBottomSheetViewController: UIViewController {
     var cryptoModel: CryptoAddressModel
     let homeViewModel: HomeViewModel
+    lazy var editVC = EditCryptoAddressViewController(homeViewModel: homeViewModel)
+    private var copyView = CustomCopyShare(text: "Copy", imageVar: "doc.on.doc")
+
+    private var shareView = CustomCopyShare(text: "Share", imageVar: "square.and.arrow.up")
+    
+    lazy var activityIndicatorController = CustomActivityIndicator()
 
     lazy var customContainerView: UIView = {
         var customContainerView = CustomInfoContainer()
@@ -18,12 +24,6 @@ class CustomBottomSheetViewController: UIViewController {
         customContainerView.cryptoAddressField.text = cryptoModel.cryptoAddress
         return customContainerView
     }()
-
-    private var copyView = CustomCopyShare(text: "Copy", imageVar: "doc.on.doc")
-
-    private var shareView = CustomCopyShare(text: "Share", imageVar: "square.and.arrow.up")
-    
-    lazy var activityIndicatorController = CustomActivityIndicator()
 
     @objc private func share(_ sender: UIButton) {
         let items: [Any] = [cryptoModel.cryptoAddress!]
@@ -51,6 +51,12 @@ class CustomBottomSheetViewController: UIViewController {
         editButton.backgroundColor = .black
         return editButton
     }()
+    
+    
+    
+    @objc func editButtonAction() {
+        navigationController?.pushViewController(editVC, animated: true)
+    }
 
     private var deleteButton: UIButton = {
         var deleteButton = UIButton()
@@ -67,7 +73,7 @@ class CustomBottomSheetViewController: UIViewController {
     }
 
     @objc func deleteButtonAction() {
-        homeViewModel.deleteAddress(cryptoModel, view: self)
+        homeViewModel.deleteAddress(cryptoModel)
     }
 
     override func viewDidLoad() {
@@ -79,6 +85,7 @@ class CustomBottomSheetViewController: UIViewController {
         copyView.button.addTarget(self, action: #selector(copyValuePressed), for: .touchUpInside)
         shareView.button.addTarget(self, action: #selector(share), for: .touchUpInside)
         deleteButton.addTarget(self, action: #selector(deleteButtonAction), for: .touchUpInside)
+        editButton.addTarget(self, action: #selector(editButtonAction), for: .touchUpInside)
     }
 
     @objc func copyValuePressed() {
@@ -120,6 +127,7 @@ private class CustomCopyShare: UIStackView {
         var label = UILabel()
         label.text = self.labelText
         label.font = .boldSystemFont(ofSize: 20)
+        label.textColor = .black
         return label
     }()
 

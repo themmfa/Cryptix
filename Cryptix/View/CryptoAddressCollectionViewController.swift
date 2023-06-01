@@ -62,6 +62,7 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
         }
 
         // MARK: - By presenting the UIActivityViewController from the window's root view controller, we avoid potential issues related to the detached view controller. This approach ensures that the view controller presenting the activity view controller is always a part of the view hierarchy.
+        
 
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let visibleViewController = windowScene.windows.first?.visibleViewController
@@ -88,12 +89,6 @@ extension UIWindow {
     private static func getVisibleViewController(from viewController: UIViewController) -> UIViewController {
         if let navigationController = viewController as? UINavigationController {
             return UIWindow.getVisibleViewController(from: navigationController.visibleViewController!)
-        }
-
-        if let tabBarController = viewController as? UITabBarController {
-            if let selectedViewController = tabBarController.selectedViewController {
-                return UIWindow.getVisibleViewController(from: selectedViewController)
-            }
         }
 
         if let presentedViewController = viewController.presentedViewController {

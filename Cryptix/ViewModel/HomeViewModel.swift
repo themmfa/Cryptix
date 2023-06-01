@@ -51,7 +51,7 @@ class HomeViewModel {
         }
     }
 
-    func deleteAddress(_ cryptoModel: CryptoAddressModel, view: UIViewController) {
+    func deleteAddress(_ cryptoModel: CryptoAddressModel) {
         Task {
             do {
                 let cryptoList = try await firebaseApiService.deleteCryptoAddress(with: cryptoModel)

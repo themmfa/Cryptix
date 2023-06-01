@@ -176,4 +176,46 @@ class FirebaseApiService {
 
         return []
     }
+    
+    
+    /// Edit crypto address
+    func editCryptoAddress(with cryptoAdressModel: CryptoAddressModel) async throws -> [CryptoAddressModel?] {
+        guard let currentUser = Auth.auth().currentUser else {
+            throw CustomError.userNotFount(message: "User could not found")
+        }
+
+        let uid = currentUser.uid
+
+        let collection = Firestore.firestore().collection("users").document(uid).collection("addresses")
+
+        do {
+            let addresses = try await collection.getDocuments()
+
+            for address in addresses.documents {
+                let data = address.data()
+
+                guard let cryptoAddress = data["cryptoAddress"] as? String else {
+                    throw CustomError.documentDoesNotExist(message: "One of the fields does not exist")
+                }
+
+                if cryptoAddress == cryptoAdressModel.cryptoAddress {
+                    do {
+                        try await address.reference.setData(["name" : cryptoAdressModel.name! as String,"exchange":cryptoAdressModel.exchange! as String,"cryptoAddress":cryptoAdressModel.cryptoAddress! as String],merge: true)
+                        do {
+                            let newAddressList = try await getCryptoAddresses()
+                            return newAddressList
+                        } catch {
+                            throw CustomError.documentDoesNotExist(message: "Something went wrong")
+                        }
+                    } catch {
+                        throw CustomError.documentDoesNotExist(message: "Document could not found.")
+                    }
+                }
+            }
+        } catch {
+            throw CustomError.documentDoesNotExist(message: error.localizedDescription)
+        }
+
+        return []
+    }
 }
