@@ -12,9 +12,11 @@ class EditCryptoAddressViewController: UIViewController{
     
     let homeViewModel: HomeViewModel
     let activityIndicatorController = CustomActivityIndicator()
+    let cryptoAddressModel:CryptoAddressModel
     
-    init(homeViewModel: HomeViewModel) {
+    init(homeViewModel: HomeViewModel,cryptoModel:CryptoAddressModel) {
         self.homeViewModel = homeViewModel
+        self.cryptoAddressModel = cryptoModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -22,8 +24,13 @@ class EditCryptoAddressViewController: UIViewController{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 
-    private let cryptoAddressField = CustomTextfield(placeholder: "Crypto Address")
+    private lazy var cryptoAddressField:UITextField = {
+       var cryptoAddressField = CustomTextfield(placeholder: "Crypto Address")
+        cryptoAddressField.text = self.cryptoAddressModel.cryptoAddress
+        return cryptoAddressField
+    }()
     private let cryptoAddressTitle: UILabel = {
         var cryptoAddressTitle = UILabel()
         cryptoAddressTitle.text = "Crypto Address"
@@ -32,7 +39,11 @@ class EditCryptoAddressViewController: UIViewController{
         return cryptoAddressTitle
     }()
 
-    private let nameField = CustomTextfield(placeholder: "Name")
+    private lazy var nameField: UITextField = {
+       var nameField = CustomTextfield(placeholder: "Name")
+        nameField.text = self.cryptoAddressModel.name
+        return nameField
+    }()
     private let nameTitle: UILabel = {
         var nameTitle = UILabel()
         nameTitle.text = "Name"
@@ -41,7 +52,11 @@ class EditCryptoAddressViewController: UIViewController{
         return nameTitle
     }()
 
-    private let exchangeField = CustomTextfield(placeholder: "Exchange")
+    private lazy var exchangeField: UITextField = {
+       var exchangeField = CustomTextfield(placeholder: "Exchange")
+        exchangeField.text = self.cryptoAddressModel.exchange
+        return exchangeField
+    }()
     private let exchangeTitle: UILabel = {
         var exchangeTitle = UILabel()
         exchangeTitle.text = "Exchange"
@@ -51,18 +66,23 @@ class EditCryptoAddressViewController: UIViewController{
     }()
     
     
-    private lazy var editButton: UIButton = {
-        var editButton = CustomButton(title: "Edit")
-        editButton.backgroundColor = editButtonColor
-        editButton.isEnabled = editButtonEnabled
-        return editButton
+    private lazy var saveButton: UIButton = {
+        var saveButton = CustomButton(title: "Save")
+        saveButton.backgroundColor = editButtonColor
+        saveButton.isEnabled = editButtonEnabled
+        return saveButton
     }()
     
-   
+    @objc func saveButtonAction(){
+        activityIndicatorController.startAnimating(in: self)
+        self.homeViewModel.editAddress(CryptoAddressModel(name: nameField.text,exchange: exchangeField.text,cryptoAddress: cryptoAddressField.text))
+    }
     
     override func viewDidLoad() {
+        view.backgroundColor = .white
         layout()
         textfieldObservers()
+        saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
     }
     
 }
@@ -73,7 +93,7 @@ extension EditCryptoAddressViewController {
         let stackView2 = CustomStackView(subviewList: [exchangeTitle, exchangeField])
         let stackView3 = CustomStackView(subviewList: [cryptoAddressTitle, cryptoAddressField])
 
-        let containerView = CustomStackView(subviewList: [stackView1, stackView2, stackView3, editButton])
+        let containerView = CustomStackView(subviewList: [stackView1, stackView2, stackView3, saveButton])
         containerView.spacing = 20
 
         view.addSubview(containerView)
@@ -94,8 +114,8 @@ extension EditCryptoAddressViewController {
         } else {
             homeViewModel.cryptoAddress = cryptoAddressField.text
         }
-        editButton.backgroundColor = editButtonColor
-        editButton.isEnabled = editButtonEnabled
+        saveButton.backgroundColor = editButtonColor
+        saveButton.isEnabled = editButtonEnabled
     }
     
     var isFormValid: Bool {

@@ -10,7 +10,8 @@ import UIKit
 class CustomBottomSheetViewController: UIViewController {
     var cryptoModel: CryptoAddressModel
     let homeViewModel: HomeViewModel
-    lazy var editVC = EditCryptoAddressViewController(homeViewModel: homeViewModel)
+    let navController: UINavigationController
+    lazy var editVC = EditCryptoAddressViewController(homeViewModel: homeViewModel,cryptoModel: cryptoModel)
     private var copyView = CustomCopyShare(text: "Copy", imageVar: "doc.on.doc")
 
     private var shareView = CustomCopyShare(text: "Share", imageVar: "square.and.arrow.up")
@@ -55,7 +56,8 @@ class CustomBottomSheetViewController: UIViewController {
     
     
     @objc func editButtonAction() {
-        navigationController?.pushViewController(editVC, animated: true)
+        dismiss(animated: true)
+        self.navController.pushViewController(editVC, animated: true)
     }
 
     private var deleteButton: UIButton = {
@@ -66,9 +68,10 @@ class CustomBottomSheetViewController: UIViewController {
         return deleteButton
     }()
 
-    init(cryptoModel: CryptoAddressModel, homeViewModel: HomeViewModel) {
+    init(cryptoModel: CryptoAddressModel, homeViewModel: HomeViewModel,nav:UINavigationController) {
         self.cryptoModel = cryptoModel
         self.homeViewModel = homeViewModel
+        self.navController = nav
         super.init(nibName: nil, bundle: nil)
     }
 

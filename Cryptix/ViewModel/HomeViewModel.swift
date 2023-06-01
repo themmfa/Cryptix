@@ -13,6 +13,7 @@ protocol HomeViewModelDelegate {
     func getCryptoAddress(_ response: ApiResponse)
     func getUserInfo(_ response: ApiResponse)
     func signOut(_ response: ApiResponse)
+    func edit(_ response: ApiResponse)
 }
 
 class HomeViewModel {
@@ -96,6 +97,18 @@ class HomeViewModel {
 
             } catch {
                 delegate?.signOut(ApiResponse(errorMessage: error.localizedDescription, isSuccess: false))
+            }
+        }
+    }
+    
+    func editAddress(_ cryptoModel: CryptoAddressModel) {
+        Task {
+            do {
+                self.addressList = try await self.firebaseApiService.editCryptoAddress(with: cryptoModel)
+                delegate?.edit(ApiResponse(isSuccess: true))
+
+            } catch {
+                delegate?.edit(ApiResponse(errorMessage: error.localizedDescription, isSuccess: false))
             }
         }
     }

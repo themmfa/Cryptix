@@ -13,10 +13,12 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
     let homeViewModel: HomeViewModel
 
     var bottomSheetView: CustomBottomSheetViewController?
+    
+    let navController:UINavigationController
 
-    init(collectionViewLayout: UICollectionViewLayout, homeViewModel: HomeViewModel) {
+    init(collectionViewLayout: UICollectionViewLayout, homeViewModel: HomeViewModel,nav:UINavigationController) {
         self.homeViewModel = homeViewModel
-
+        self.navController = nav
         super.init(collectionViewLayout: collectionViewLayout)
     }
 
@@ -49,7 +51,7 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.bottomSheetView = CustomBottomSheetViewController(cryptoModel: homeViewModel.addressList[indexPath.row]!, homeViewModel: homeViewModel)
+        self.bottomSheetView = CustomBottomSheetViewController(cryptoModel: homeViewModel.addressList[indexPath.row]!, homeViewModel: homeViewModel,nav: self.navController)
 
         bottomSheetView!.modalPresentationStyle = .pageSheet
 
@@ -63,12 +65,8 @@ class CryptoAddressCollectionViewController: UICollectionViewController {
 
         // MARK: - By presenting the UIActivityViewController from the window's root view controller, we avoid potential issues related to the detached view controller. This approach ensures that the view controller presenting the activity view controller is always a part of the view hierarchy.
         
+        present(bottomSheetView!, animated: true)
 
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let visibleViewController = windowScene.windows.first?.visibleViewController
-        {
-            visibleViewController.present(bottomSheetView!, animated: true, completion: nil)
-        }
     }
 }
 
@@ -78,23 +76,4 @@ extension CryptoAddressCollectionViewController: UICollectionViewDelegateFlowLay
     }
 }
 
-extension UIWindow {
-    var visibleViewController: UIViewController? {
-        if let rootViewController = rootViewController {
-            return UIWindow.getVisibleViewController(from: rootViewController)
-        }
-        return nil
-    }
 
-    private static func getVisibleViewController(from viewController: UIViewController) -> UIViewController {
-        if let navigationController = viewController as? UINavigationController {
-            return UIWindow.getVisibleViewController(from: navigationController.visibleViewController!)
-        }
-
-        if let presentedViewController = viewController.presentedViewController {
-            return UIWindow.getVisibleViewController(from: presentedViewController)
-        }
-
-        return viewController
-    }
-}
