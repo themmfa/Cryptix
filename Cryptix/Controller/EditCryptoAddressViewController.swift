@@ -75,7 +75,7 @@ class EditCryptoAddressViewController: UIViewController{
     
     @objc func saveButtonAction(){
         activityIndicatorController.startAnimating(in: self)
-        self.homeViewModel.editAddress(CryptoAddressModel(name: nameField.text,exchange: exchangeField.text,cryptoAddress: cryptoAddressField.text))
+        self.homeViewModel.editAddress(editedCryptoModel: CryptoAddressModel(name: nameField.text,exchange: exchangeField.text,cryptoAddress: cryptoAddressField.text), currentCryptoModel: cryptoAddressModel)
     }
     
     override func viewDidLoad() {

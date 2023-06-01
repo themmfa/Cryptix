@@ -101,10 +101,10 @@ class HomeViewModel {
         }
     }
     
-    func editAddress(_ cryptoModel: CryptoAddressModel) {
+    func editAddress(editedCryptoModel: CryptoAddressModel,currentCryptoModel:CryptoAddressModel) {
         Task {
             do {
-                self.addressList = try await self.firebaseApiService.editCryptoAddress(with: cryptoModel)
+                self.addressList = try await self.firebaseApiService.editCryptoAddress(editedCryptoModel: editedCryptoModel, currentCryptoModel: currentCryptoModel)
                 delegate?.edit(ApiResponse(isSuccess: true))
 
             } catch {

@@ -179,7 +179,7 @@ class FirebaseApiService {
     
     
     /// Edit crypto address
-    func editCryptoAddress(with cryptoAdressModel: CryptoAddressModel) async throws -> [CryptoAddressModel?] {
+    func editCryptoAddress(editedCryptoModel: CryptoAddressModel,currentCryptoModel:CryptoAddressModel) async throws -> [CryptoAddressModel?] {
         guard let currentUser = Auth.auth().currentUser else {
             throw CustomError.userNotFount(message: "User could not found")
         }
@@ -198,11 +198,12 @@ class FirebaseApiService {
                     throw CustomError.documentDoesNotExist(message: "One of the fields does not exist")
                 }
 
-                if cryptoAddress == cryptoAdressModel.cryptoAddress {
+                if cryptoAddress == currentCryptoModel.cryptoAddress {
                     do {
-                        try await address.reference.setData(["name" : cryptoAdressModel.name! as String,"exchange":cryptoAdressModel.exchange! as String,"cryptoAddress":cryptoAdressModel.cryptoAddress! as String],merge: true)
+                        try await address.reference.setData(["name" : editedCryptoModel.name! as String,"exchange":editedCryptoModel.exchange! as String,"cryptoAddress":editedCryptoModel.cryptoAddress! as String],merge: true)
                         do {
                             let newAddressList = try await getCryptoAddresses()
+                            print(newAddressList)
                             return newAddressList
                         } catch {
                             throw CustomError.documentDoesNotExist(message: "Something went wrong")
