@@ -31,16 +31,16 @@ class AddCryptoAddressViewController: UIViewController {
         return cryptoAddressTitle
     }()
 
-    private let nameField = CustomTextfield(placeholder: "Name")
+    lazy var cryptoDropdown = CustomCryptoDropdownButton(homeViewModel: homeViewModel)
     private let nameTitle: UILabel = {
-        var nameTitle = UILabel()
-        nameTitle.text = "Name"
-        nameTitle.textColor = .black
-        nameTitle.font = .boldSystemFont(ofSize: 16)
-        return nameTitle
+        var cryptoAddressTitle = UILabel()
+        cryptoAddressTitle.text = "Name"
+        cryptoAddressTitle.textColor = .black
+        cryptoAddressTitle.font = .boldSystemFont(ofSize: 16)
+        return cryptoAddressTitle
     }()
 
-    private let exchangeField = CustomTextfield(placeholder: "Exchange")
+    lazy var exchangeDropdown = CustomExchangeDropdownButton(homeViewModel: homeViewModel)
     private let exchangeTitle: UILabel = {
         var exchangeTitle = UILabel()
         exchangeTitle.text = "Exchange"
@@ -58,12 +58,13 @@ class AddCryptoAddressViewController: UIViewController {
 
     @objc func addCryptoAddress() {
         activityIndicatorController.startAnimating(in: self)
-        homeViewModel.addCryptoAddress(in: self, with: navigationController!)
+        homeViewModel.addCryptoAddress()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        homeViewModel.getDropdownList()
         layout()
         textfieldObservers()
         addCryptoButton.addTarget(self, action: #selector(addCryptoAddress), for: .touchUpInside)
@@ -72,8 +73,8 @@ class AddCryptoAddressViewController: UIViewController {
 
 extension AddCryptoAddressViewController {
     private func layout() {
-        let stackView1 = CustomStackView(subviewList: [nameTitle, nameField])
-        let stackView2 = CustomStackView(subviewList: [exchangeTitle, exchangeField])
+        let stackView1 = CustomStackView(subviewList: [nameTitle, cryptoDropdown])
+        let stackView2 = CustomStackView(subviewList: [exchangeTitle, exchangeDropdown])
         let stackView3 = CustomStackView(subviewList: [cryptoAddressTitle, cryptoAddressField])
 
         let containerView = CustomStackView(subviewList: [stackView1, stackView2, stackView3, addCryptoButton])
@@ -84,17 +85,11 @@ extension AddCryptoAddressViewController {
     }
 
     func textfieldObservers() {
-        nameField.addTarget(self, action: #selector(textfieldChanged), for: .editingChanged)
-        exchangeField.addTarget(self, action: #selector(textfieldChanged), for: .editingChanged)
         cryptoAddressField.addTarget(self, action: #selector(textfieldChanged), for: .editingChanged)
     }
 
     @objc func textfieldChanged(sender: UITextField) {
-        if sender == nameField {
-            homeViewModel.name = nameField.text
-        } else if sender == exchangeField {
-            homeViewModel.exchange = exchangeField.text
-        } else {
+        if sender == cryptoAddressField {
             homeViewModel.cryptoAddress = cryptoAddressField.text
         }
         addCryptoButton.backgroundColor = homeViewModel.addCryptoButtonColor

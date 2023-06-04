@@ -10,8 +10,6 @@ import UIKit
 class CustomCell: UICollectionViewCell {
     lazy var imageView: UIImageView = {
         var imageView = UIImageView()
-        var image = UIImage(systemName: "bitcoinsign.circle.fill")
-        imageView.image = image
         imageView.setDimensions(height: 30, width: 30)
         imageView.contentMode = .scaleAspectFill
         imageView.tintColor = .black
@@ -78,7 +76,5 @@ extension CustomCell {
 
         addSubview(stackView)
         stackView.anchor(top: topAnchor, left: imageView.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingLeft: 12, paddingRight: 12)
-        
-        
     }
 }

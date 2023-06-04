@@ -40,6 +40,12 @@
 		85E1D0F02A20A9B4008D63EA /* CustomInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0EF2A20A9B4008D63EA /* CustomInfoContainer.swift */; };
 		85E1D0F22A20C344008D63EA /* CustomToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1D0F12A20C344008D63EA /* CustomToastMessage.swift */; };
 		85F25A052A273B2F009BCE00 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F25A042A273B2F009BCE00 /* ApiResponse.swift */; };
+		85F5340D2A2C9DA70056FE23 /* CryptoApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F5340C2A2C9DA70056FE23 /* CryptoApiService.swift */; };
+		85F5340F2A2C9EBF0056FE23 /* CryptoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F5340E2A2C9EBF0056FE23 /* CryptoListModel.swift */; };
+		85F534112A2CA0540056FE23 /* CustomCryptoDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F534102A2CA0540056FE23 /* CustomCryptoDropdown.swift */; };
+		85F534142A2CAAF80056FE23 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 85F534132A2CAAF80056FE23 /* SDWebImage */; };
+		85F534162A2CAC630056FE23 /* ExhangeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F534152A2CAC630056FE23 /* ExhangeListModel.swift */; };
+		85F5341A2A2CB35B0056FE23 /* CustomExchangeDropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F534192A2CB35B0056FE23 /* CustomExchangeDropdownButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +81,11 @@
 		85E1D0EF2A20A9B4008D63EA /* CustomInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoContainer.swift; sourceTree = "<group>"; };
 		85E1D0F12A20C344008D63EA /* CustomToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToastMessage.swift; sourceTree = "<group>"; };
 		85F25A042A273B2F009BCE00 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		85F5340C2A2C9DA70056FE23 /* CryptoApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApiService.swift; sourceTree = "<group>"; };
+		85F5340E2A2C9EBF0056FE23 /* CryptoListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListModel.swift; sourceTree = "<group>"; };
+		85F534102A2CA0540056FE23 /* CustomCryptoDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCryptoDropdown.swift; sourceTree = "<group>"; };
+		85F534152A2CAC630056FE23 /* ExhangeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhangeListModel.swift; sourceTree = "<group>"; };
+		85F534192A2CB35B0056FE23 /* CustomExchangeDropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExchangeDropdownButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +95,7 @@
 			files = (
 				85D6F03D2A1BF77F004224DE /* FirebaseAuth in Frameworks */,
 				85D6F03F2A1BF77F004224DE /* FirebaseFirestore in Frameworks */,
+				85F534142A2CAAF80056FE23 /* SDWebImage in Frameworks */,
 				85D6F0412A1BF77F004224DE /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +153,8 @@
 				85E1D0EB2A208B0C008D63EA /* CustomBottomSheetViewController.swift */,
 				85E1D0EF2A20A9B4008D63EA /* CustomInfoContainer.swift */,
 				85E1D0F12A20C344008D63EA /* CustomToastMessage.swift */,
+				85F534102A2CA0540056FE23 /* CustomCryptoDropdown.swift */,
+				85F534192A2CB35B0056FE23 /* CustomExchangeDropdownButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */,
+				85F5340C2A2C9DA70056FE23 /* CryptoApiService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -197,6 +212,8 @@
 				85D6F0472A1BF960004224DE /* UserModel.swift */,
 				85E1D0DF2A1D5427008D63EA /* CryptoAddressModel.swift */,
 				85F25A042A273B2F009BCE00 /* ApiResponse.swift */,
+				85F5340E2A2C9EBF0056FE23 /* CryptoListModel.swift */,
+				85F534152A2CAC630056FE23 /* ExhangeListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +238,7 @@
 				85D6F03C2A1BF77F004224DE /* FirebaseAuth */,
 				85D6F03E2A1BF77F004224DE /* FirebaseFirestore */,
 				85D6F0402A1BF77F004224DE /* FirebaseStorage */,
+				85F534132A2CAAF80056FE23 /* SDWebImage */,
 			);
 			productName = Cryptix;
 			productReference = 21798E292A1B583400AD8135 /* Cryptix.app */;
@@ -252,6 +270,7 @@
 			mainGroup = 21798E202A1B583400AD8135;
 			packageReferences = (
 				85D6F03B2A1BF77F004224DE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				85F534122A2CAAF80056FE23 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 21798E2A2A1B583400AD8135 /* Products */;
 			projectDirPath = "";
@@ -287,6 +306,7 @@
 				21798E4B2A1B5E8300AD8135 /* CustomButton.swift in Sources */,
 				85E1D0E42A1DCE7A008D63EA /* HomeViewModel.swift in Sources */,
 				85D6F0342A1BF0DE004224DE /* RegisterViewController.swift in Sources */,
+				85F534112A2CA0540056FE23 /* CustomCryptoDropdown.swift in Sources */,
 				85D6F04A2A1BF9FF004224DE /* CustomActivityIndicator.swift in Sources */,
 				21798E2F2A1B583400AD8135 /* SceneDelegate.swift in Sources */,
 				85E1D0EA2A1DE303008D63EA /* CustomCell.swift in Sources */,
@@ -294,7 +314,9 @@
 				85D6F0432A1BF7AE004224DE /* HomeViewController.swift in Sources */,
 				85E1D0E22A1D54F2008D63EA /* CustomErrors.swift in Sources */,
 				85D6F04E2A1C0054004224DE /* EmptyPage.swift in Sources */,
+				85F534162A2CAC630056FE23 /* ExhangeListModel.swift in Sources */,
 				21798E472A1B5ABE00AD8135 /* Extensions.swift in Sources */,
+				85F5341A2A2CB35B0056FE23 /* CustomExchangeDropdownButton.swift in Sources */,
 				85F25A052A273B2F009BCE00 /* ApiResponse.swift in Sources */,
 				21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */,
 				85D6F04C2A1BFA1E004224DE /* CustomAlert.swift in Sources */,
@@ -303,9 +325,11 @@
 				8513C3AD2A236AC1007D195E /* FirebaseApiService.swift in Sources */,
 				85E1D0EC2A208B0D008D63EA /* CustomBottomSheetViewController.swift in Sources */,
 				85E1D0D82A1D41E4008D63EA /* AddCryptoAddressViewController.swift in Sources */,
+				85F5340D2A2C9DA70056FE23 /* CryptoApiService.swift in Sources */,
 				85E1D0F22A20C344008D63EA /* CustomToastMessage.swift in Sources */,
 				85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */,
 				85E1D0E02A1D5427008D63EA /* CryptoAddressModel.swift in Sources */,
+				85F5340F2A2C9EBF0056FE23 /* CryptoListModel.swift in Sources */,
 				85D6F0482A1BF960004224DE /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +548,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		85F534122A2CAAF80056FE23 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -541,6 +573,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 85D6F03B2A1BF77F004224DE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		85F534132A2CAAF80056FE23 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F534122A2CAAF80056FE23 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -92,10 +92,10 @@ class FirebaseApiService {
             for address in addresses.documents {
                 let data = address.data()
 
-                guard let name = data["name"], let exchange = data["exchange"], let cryptoAddress = data["cryptoAddress"] else {
+                guard let name = data["name"], let exchange = data["exchange"], let cryptoAddress = data["cryptoAddress"], let cryptoImage = data["cryptoImage"] else {
                     throw CustomError.documentDoesNotExist(message: "One of the fields does not exist")
                 }
-                addressList.append(CryptoAddressModel(name: name as? String, exchange: exchange as? String, cryptoAddress: cryptoAddress as? String))
+                addressList.append(CryptoAddressModel(name: name as? String, exchange: exchange as? String, cryptoAddress: cryptoAddress as? String, cryptoImage: cryptoImage as? String))
             }
 
             return addressList
@@ -123,7 +123,8 @@ class FirebaseApiService {
             "name": cryptoAdressModel.name!,
             "exchange": cryptoAdressModel.exchange!,
             "cryptoAddress": cryptoAdressModel.cryptoAddress!,
-            "dateCreated": Date().timeIntervalSince1970
+            "dateCreated": Date().timeIntervalSince1970,
+            "cryptoImage": cryptoAdressModel.cryptoImage!
         ]
 
         let userDocument = userCollection.document(uid)
@@ -176,10 +177,9 @@ class FirebaseApiService {
 
         return []
     }
-    
-    
+
     /// Edit crypto address
-    func editCryptoAddress(editedCryptoModel: CryptoAddressModel,currentCryptoModel:CryptoAddressModel) async throws -> [CryptoAddressModel?] {
+    func editCryptoAddress(editedCryptoModel: CryptoAddressModel, currentCryptoModel: CryptoAddressModel) async throws -> [CryptoAddressModel?] {
         guard let currentUser = Auth.auth().currentUser else {
             throw CustomError.userNotFount(message: "User could not found")
         }
@@ -200,7 +200,7 @@ class FirebaseApiService {
 
                 if cryptoAddress == currentCryptoModel.cryptoAddress {
                     do {
-                        try await address.reference.setData(["name" : editedCryptoModel.name! as String,"exchange":editedCryptoModel.exchange! as String,"cryptoAddress":editedCryptoModel.cryptoAddress! as String],merge: true)
+                        try await address.reference.setData(["name": editedCryptoModel.name! as String, "exchange": editedCryptoModel.exchange! as String, "cryptoAddress": editedCryptoModel.cryptoAddress! as String], merge: true)
                         do {
                             let newAddressList = try await getCryptoAddresses()
                             print(newAddressList)

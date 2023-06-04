@@ -13,4 +13,7 @@ enum CustomError: Error {
     case fieldCouldNotFound(message: String)
     case cantSignOut(message: String)
     case cantSetNewCryptoAdress(message: String)
+    case badUrl(message: String)
+    case badRequest(message: String)
+    case invalidData(message: String)
 }

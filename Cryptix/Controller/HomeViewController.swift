@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
         return profileButton
     }()
 
-    private lazy var cryptoAddressCollectionView = CryptoAddressCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout(), homeViewModel: homeViewModel,nav: navigationController!)
+    private lazy var cryptoAddressCollectionView = CryptoAddressCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout(), homeViewModel: homeViewModel, nav: navigationController!)
 
     // TODO: Fix the issue and add to left bar item
     private var menuButton: UIBarButtonItem = {
@@ -100,23 +100,37 @@ extension HomeViewController {
 }
 
 extension HomeViewController: HomeViewModelDelegate {
-    func edit(_ response: ApiResponse) {
-        if response.isSuccess{
+    func getDropdownList(_ response: ApiResponse) {
+        if response.isSuccess {
             DispatchQueue.main.async { [weak self] in
-                self?.cryptoAddressCollectionView.bottomSheetView!.editVC.activityIndicatorController.stopAnimating()
-                CustomAlert.showAlert(title: "Success!", message: "Crypto address edited successfully!", viewController: self!.cryptoAddressCollectionView.bottomSheetView!.editVC) { _ in }
+                self?.addCryptoVC.activityIndicatorController.stopAnimating()
+                self?.addCryptoVC.exchangeDropdown.options = (self?.homeViewModel.exchangeList)!
+                self?.addCryptoVC.cryptoDropdown.options = (self?.homeViewModel.cryptoList)!
             }
         }
-        
-        if !response.isSuccess{
+        if !response.isSuccess {
             DispatchQueue.main.async { [weak self] in
-                self?.cryptoAddressCollectionView.bottomSheetView!.editVC.activityIndicatorController.stopAnimating()
-                CustomAlert.showAlert(title: "Success!", message: "Crypto address edited successfully!", viewController: self!.cryptoAddressCollectionView.bottomSheetView!.editVC) { _ in }
+                self?.addCryptoVC.activityIndicatorController.stopAnimating()
             }
         }
-        
     }
-    
+
+    func edit(_ response: ApiResponse) {
+        if response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.cryptoAddressCollectionView.bottomSheetView!.editVC.activityIndicatorController.stopAnimating()
+                CustomAlert.showAlert(title: "Success!", message: "Crypto address edited successfully!", viewController: self!.cryptoAddressCollectionView.bottomSheetView!.editVC) { _ in }
+            }
+        }
+
+        if !response.isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.cryptoAddressCollectionView.bottomSheetView!.editVC.activityIndicatorController.stopAnimating()
+                CustomAlert.showAlert(title: "Success!", message: "Crypto address edited successfully!", viewController: self!.cryptoAddressCollectionView.bottomSheetView!.editVC) { _ in }
+            }
+        }
+    }
+
     func signOut(_ response: ApiResponse) {
         if response.isSuccess {
             DispatchQueue.main.async { [weak self] in

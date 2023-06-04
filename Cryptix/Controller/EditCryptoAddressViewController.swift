@@ -7,14 +7,12 @@
 
 import UIKit
 
-
-class EditCryptoAddressViewController: UIViewController{
-    
+class EditCryptoAddressViewController: UIViewController {
     let homeViewModel: HomeViewModel
     let activityIndicatorController = CustomActivityIndicator()
-    let cryptoAddressModel:CryptoAddressModel
-    
-    init(homeViewModel: HomeViewModel,cryptoModel:CryptoAddressModel) {
+    let cryptoAddressModel: CryptoAddressModel
+
+    init(homeViewModel: HomeViewModel, cryptoModel: CryptoAddressModel) {
         self.homeViewModel = homeViewModel
         self.cryptoAddressModel = cryptoModel
         super.init(nibName: nil, bundle: nil)
@@ -24,13 +22,13 @@ class EditCryptoAddressViewController: UIViewController{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 
-    private lazy var cryptoAddressField:UITextField = {
-       var cryptoAddressField = CustomTextfield(placeholder: "Crypto Address")
+    private lazy var cryptoAddressField: UITextField = {
+        var cryptoAddressField = CustomTextfield(placeholder: "Crypto Address")
         cryptoAddressField.text = self.cryptoAddressModel.cryptoAddress
         return cryptoAddressField
     }()
+
     private let cryptoAddressTitle: UILabel = {
         var cryptoAddressTitle = UILabel()
         cryptoAddressTitle.text = "Crypto Address"
@@ -40,10 +38,11 @@ class EditCryptoAddressViewController: UIViewController{
     }()
 
     private lazy var nameField: UITextField = {
-       var nameField = CustomTextfield(placeholder: "Name")
+        var nameField = CustomTextfield(placeholder: "Name")
         nameField.text = self.cryptoAddressModel.name
         return nameField
     }()
+
     private let nameTitle: UILabel = {
         var nameTitle = UILabel()
         nameTitle.text = "Name"
@@ -53,10 +52,11 @@ class EditCryptoAddressViewController: UIViewController{
     }()
 
     private lazy var exchangeField: UITextField = {
-       var exchangeField = CustomTextfield(placeholder: "Exchange")
+        var exchangeField = CustomTextfield(placeholder: "Exchange")
         exchangeField.text = self.cryptoAddressModel.exchange
         return exchangeField
     }()
+
     private let exchangeTitle: UILabel = {
         var exchangeTitle = UILabel()
         exchangeTitle.text = "Exchange"
@@ -64,27 +64,25 @@ class EditCryptoAddressViewController: UIViewController{
         exchangeTitle.font = .boldSystemFont(ofSize: 16)
         return exchangeTitle
     }()
-    
-    
+
     private lazy var saveButton: UIButton = {
         var saveButton = CustomButton(title: "Save")
         saveButton.backgroundColor = editButtonColor
         saveButton.isEnabled = editButtonEnabled
         return saveButton
     }()
-    
-    @objc func saveButtonAction(){
+
+    @objc func saveButtonAction() {
         activityIndicatorController.startAnimating(in: self)
-        self.homeViewModel.editAddress(editedCryptoModel: CryptoAddressModel(name: nameField.text,exchange: exchangeField.text,cryptoAddress: cryptoAddressField.text), currentCryptoModel: cryptoAddressModel)
+        homeViewModel.editAddress(editedCryptoModel: CryptoAddressModel(name: nameField.text, exchange: exchangeField.text, cryptoAddress: cryptoAddressField.text, cryptoImage: nil), currentCryptoModel: cryptoAddressModel)
     }
-    
+
     override func viewDidLoad() {
         view.backgroundColor = .white
         layout()
         textfieldObservers()
         saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
     }
-    
 }
 
 extension EditCryptoAddressViewController {
@@ -117,7 +115,7 @@ extension EditCryptoAddressViewController {
         saveButton.backgroundColor = editButtonColor
         saveButton.isEnabled = editButtonEnabled
     }
-    
+
     var isFormValid: Bool {
         return nameField.text!.isEmpty == false && exchangeField.text!.isEmpty == false && cryptoAddressField.text!.isEmpty == false
     }

@@ -14,22 +14,27 @@ protocol HomeViewModelDelegate {
     func getUserInfo(_ response: ApiResponse)
     func signOut(_ response: ApiResponse)
     func edit(_ response: ApiResponse)
+    func getDropdownList(_ response: ApiResponse)
 }
 
 class HomeViewModel {
     var addressList: [CryptoAddressModel?] = []
+    var cryptoList: CryptoList = []
+    var exchangeList: ExhangeList = []
     var user: UserModel?
 
     var name: String?
     var exchange: String?
     var cryptoAddress: String?
+    var cryptoImage: String?
 
     var delegate: HomeViewModelDelegate?
 
     private var firebaseApiService = FirebaseApiService()
+    private var cryptoListApiService = CryptoApiService()
 
     var isFormValid: Bool {
-        return name?.isEmpty == false && exchange?.isEmpty == false && cryptoAddress?.isEmpty == false
+        return cryptoAddress?.isEmpty == false
     }
 
     var addCryptoButtonColor: UIColor {
@@ -40,10 +45,23 @@ class HomeViewModel {
         return isFormValid
     }
 
-    func addCryptoAddress(in view: UIViewController, with navigationController: UINavigationController) {
+    func getDropdownList() {
         Task {
             do {
-                try await firebaseApiService.addCryptoAddress(with: CryptoAddressModel(name: name, exchange: exchange, cryptoAddress: cryptoAddress))
+                cryptoList = try await cryptoListApiService.getCryptoList() ?? []
+                exchangeList = try await cryptoListApiService.getExchangeList() ?? []
+                delegate?.getDropdownList(ApiResponse(isSuccess: true))
+
+            } catch {
+                delegate?.getDropdownList(ApiResponse(errorMessage: error.localizedDescription, isSuccess: false))
+            }
+        }
+    }
+
+    func addCryptoAddress() {
+        Task {
+            do {
+                try await firebaseApiService.addCryptoAddress(with: CryptoAddressModel(name: name, exchange: exchange, cryptoAddress: cryptoAddress, cryptoImage: cryptoImage))
                 delegate?.addCrypto(ApiResponse(isSuccess: true))
 
             } catch {
@@ -100,8 +118,8 @@ class HomeViewModel {
             }
         }
     }
-    
-    func editAddress(editedCryptoModel: CryptoAddressModel,currentCryptoModel:CryptoAddressModel) {
+
+    func editAddress(editedCryptoModel: CryptoAddressModel, currentCryptoModel: CryptoAddressModel) {
         Task {
             do {
                 self.addressList = try await self.firebaseApiService.editCryptoAddress(editedCryptoModel: editedCryptoModel, currentCryptoModel: currentCryptoModel)
