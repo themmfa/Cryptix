@@ -10,8 +10,6 @@ import UIKit
 class CustomInfoContainer: UIView {
     lazy var imageView: UIImageView = {
         var imageView = UIImageView()
-        var image = UIImage(systemName: "bitcoinsign.circle.fill")
-        imageView.image = image
         imageView.setDimensions(height: 30, width: 30)
         imageView.contentMode = .scaleAspectFill
         imageView.tintColor = .black
