@@ -86,6 +86,7 @@
 		85F534102A2CA0540056FE23 /* CustomCryptoDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCryptoDropdown.swift; sourceTree = "<group>"; };
 		85F534152A2CAC630056FE23 /* ExhangeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhangeListModel.swift; sourceTree = "<group>"; };
 		85F534192A2CB35B0056FE23 /* CustomExchangeDropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExchangeDropdownButton.swift; sourceTree = "<group>"; };
+		85F5341F2A2CFFED0056FE23 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 		21798E202A1B583400AD8135 = {
 			isa = PBXGroup;
 			children = (
+				85F5341F2A2CFFED0056FE23 /* Readme.md */,
 				85D6F0372A1BF66D004224DE /* .gitignore */,
 				21798E2B2A1B583400AD8135 /* Cryptix */,
 				21798E2A2A1B583400AD8135 /* Products */,
