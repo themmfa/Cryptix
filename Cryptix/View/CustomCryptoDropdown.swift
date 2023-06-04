@@ -43,6 +43,7 @@ class CustomCryptoDropdownButton: UITextField {
         selectedOption = options.first?.name
         textAlignment = .left
         text = "Select Crypto"
+        textColor = .black
         createToolbar()
     }
     
@@ -95,7 +96,6 @@ extension CustomCryptoDropdownButton: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         selectedOption = options[row].name
         homeViewModel.name = selectedOption
         homeViewModel.cryptoImage = options[row].image

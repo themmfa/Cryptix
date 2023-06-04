@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
     private var menuButton: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .default)
-        button.setImage(UIImage(named: "menu", variableValue: 10, configuration: config), for: .normal)
+        button.setImage(UIImage(systemName: "menucard", variableValue: 10, configuration: config), for: .normal)
         let profileButton = UIBarButtonItem(customView: button)
         return profileButton
     }()

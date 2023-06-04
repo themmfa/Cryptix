@@ -41,8 +41,11 @@ class CustomExchangeDropdownButton: UITextField {
         pickerView.delegate = self
         inputView = pickerView
         selectedOption = options.first?.name
+        let systemBackground = UIColor.systemBackground
+        pickerView.backgroundColor = systemBackground == UIColor.white ? .gray : .white
         textAlignment = .left
         text = "Select Exhange"
+        textColor = .black
         createToolbar()
     }
     
