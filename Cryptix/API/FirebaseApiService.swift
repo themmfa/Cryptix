@@ -50,10 +50,10 @@ class FirebaseApiService {
             let document = try await userRef.getDocument()
             let data = document.data()
 
-            guard let email = data!["email"] as? String else {
+            guard let email = data?["email"] as? String else {
                 throw CustomError.fieldCouldNotFound(message: "No email field")
             }
-            guard let name = data!["name"] as? String else {
+            guard let name = data?["name"] as? String else {
                 throw CustomError.fieldCouldNotFound(message: "No name field")
             }
             let userModel = UserModel(name: name, email: email)
