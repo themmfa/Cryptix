@@ -34,7 +34,7 @@ class HomeViewModel {
     private var cryptoListApiService = CryptoApiService()
 
     var isFormValid: Bool {
-        return cryptoAddress?.isEmpty == false
+        return name?.isEmpty == false && exchange?.isEmpty == false && cryptoAddress?.isEmpty == false
     }
 
     var addCryptoButtonColor: UIColor {

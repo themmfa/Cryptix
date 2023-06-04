@@ -203,7 +203,6 @@ class FirebaseApiService {
                         try await address.reference.setData(["name": editedCryptoModel.name! as String, "exchange": editedCryptoModel.exchange! as String, "cryptoAddress": editedCryptoModel.cryptoAddress! as String], merge: true)
                         do {
                             let newAddressList = try await getCryptoAddresses()
-                            print(newAddressList)
                             return newAddressList
                         } catch {
                             throw CustomError.documentDoesNotExist(message: "Something went wrong")

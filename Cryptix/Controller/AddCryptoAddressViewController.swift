@@ -85,12 +85,18 @@ extension AddCryptoAddressViewController {
     }
 
     func textfieldObservers() {
+        cryptoDropdown.addTarget(self, action: #selector(textfieldChanged), for: .editingChanged)
+        exchangeDropdown.addTarget(self, action: #selector(textfieldChanged), for: .editingChanged)
         cryptoAddressField.addTarget(self, action: #selector(textfieldChanged), for: .editingChanged)
     }
 
     @objc func textfieldChanged(sender: UITextField) {
         if sender == cryptoAddressField {
             homeViewModel.cryptoAddress = cryptoAddressField.text
+        } else if sender == cryptoDropdown {
+            homeViewModel.name = cryptoDropdown.selectedOption
+        } else {
+            homeViewModel.exchange = exchangeDropdown.selectedOption
         }
         addCryptoButton.backgroundColor = homeViewModel.addCryptoButtonColor
         addCryptoButton.isEnabled = homeViewModel.addCryptoButtonEnabled

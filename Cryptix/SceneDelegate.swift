@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // MARK: - Check if user logged in
 
-        print(Auth.auth().currentUser)
         if Auth.auth().currentUser != nil {
             mainViewController = HomeViewController()
         }
