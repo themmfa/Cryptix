@@ -62,6 +62,7 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         layout()
         textfieldObservers()
+        self.dissmissableKeyboard()
         navigationController?.setupNavAppearence()
         gotoRegisterButton.addTarget(self, action: #selector(goToRegisterButtonAction), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)

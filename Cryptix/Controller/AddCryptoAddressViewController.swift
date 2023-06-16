@@ -66,6 +66,7 @@ class AddCryptoAddressViewController: UIViewController {
         view.backgroundColor = .white
         homeViewModel.getDropdownList()
         layout()
+        self.dissmissableKeyboard()
         textfieldObservers()
         addCryptoButton.addTarget(self, action: #selector(addCryptoAddress), for: .touchUpInside)
     }

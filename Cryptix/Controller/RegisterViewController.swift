@@ -63,6 +63,7 @@ class RegisterViewController: UIViewController {
         view.backgroundColor = .white
         layout()
         textfieldObservers()
+        self.dissmissableKeyboard()
         gotoLoginButton.addTarget(self, action: #selector(goToLoginButtonAction), for: UIControl.Event.touchUpInside)
         registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
     }

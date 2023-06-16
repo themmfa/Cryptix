@@ -80,6 +80,7 @@ class EditCryptoAddressViewController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .white
         layout()
+        self.dissmissableKeyboard()
         textfieldObservers()
         saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
     }
