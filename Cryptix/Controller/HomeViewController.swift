@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     private lazy var profileButton: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .default)
-        button.setImage(UIImage(systemName: "person.crop.circle", withConfiguration: config), for: .normal)
+        button.setImage(UIImage(systemName: ConstantStrings.profileMenuButtonIconName, withConfiguration: config), for: .normal)
         button.addTarget(self, action: #selector(goToProfilePage), for: .touchUpInside)
         let profileButton = UIBarButtonItem(customView: button)
         return profileButton
@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
     private var menuButton: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .default)
-        button.setImage(UIImage(systemName: "menucard", variableValue: 10, configuration: config), for: .normal)
+        button.setImage(UIImage(systemName: ConstantStrings.menuCardButtonIconName, variableValue: 10, configuration: config), for: .normal)
         let profileButton = UIBarButtonItem(customView: button)
         return profileButton
     }()
@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
     private var emptyPageImage = EmptyPage()
 
     private var addCryptoButton: UIButton = {
-        var button = CustomButton(title: "Add Crypto")
+        var button = CustomButton(title: ConstantStrings.addCryptoButtonTitle)
         button.isEnabled = true
         button.backgroundColor = .black
         return button
@@ -71,7 +71,7 @@ extension HomeViewController {
     /// Nav bar setup
     func setupNavBar() {
         navigationController?.setViewControllers([self], animated: true)
-        navigationItem.title = "Home"
+        navigationItem.title = ConstantStrings.homeNavigationBarTitle
         navigationController?.setupNavAppearence()
         navigationItem.rightBarButtonItem = profileButton
     }
@@ -119,14 +119,14 @@ extension HomeViewController: HomeViewModelDelegate {
         if response.isSuccess {
             DispatchQueue.main.async { [weak self] in
                 self?.cryptoAddressCollectionView.bottomSheetView!.editVC.activityIndicatorController.stopAnimating()
-                CustomAlert.showAlert(title: "Success!", message: "Crypto address edited successfully!", viewController: self!.cryptoAddressCollectionView.bottomSheetView!.editVC) { _ in }
+                CustomAlert.showAlert(title: ConstantStrings.success, message: ConstantStrings.homeCryptoAddressEditSuccess, viewController: self!.cryptoAddressCollectionView.bottomSheetView!.editVC) { _ in }
             }
         }
 
         if !response.isSuccess {
             DispatchQueue.main.async { [weak self] in
                 self?.cryptoAddressCollectionView.bottomSheetView!.editVC.activityIndicatorController.stopAnimating()
-                CustomAlert.showAlert(title: "Success!", message: "Crypto address edited successfully!", viewController: self!.cryptoAddressCollectionView.bottomSheetView!.editVC) { _ in }
+                CustomAlert.showAlert(title: ConstantStrings.success, message: ConstantStrings.homeCryptoAddressEditFail, viewController: self!.cryptoAddressCollectionView.bottomSheetView!.editVC) { _ in }
             }
         }
     }
@@ -141,7 +141,7 @@ extension HomeViewController: HomeViewModelDelegate {
         if !response.isSuccess {
             DispatchQueue.main.async { [weak self] in
                 self?.profileVC.activityIndicatorController.stopAnimating()
-                CustomAlert.showAlert(title: "Error", message: response.errorMessage ?? "", viewController: self!.profileVC) { _ in }
+                CustomAlert.showAlert(title: ConstantStrings.error, message: response.errorMessage ?? "", viewController: self!.profileVC) { _ in }
             }
         }
     }
@@ -150,7 +150,7 @@ extension HomeViewController: HomeViewModelDelegate {
         if response.isSuccess {
             DispatchQueue.main.async { [weak self] in
                 self?.addCryptoVC.activityIndicatorController.stopAnimating()
-                CustomAlert.showAlert(title: "Success", message: "Crypto address successfully added.", viewController: self!.addCryptoVC) { _ in
+                CustomAlert.showAlert(title: ConstantStrings.success, message: "Crypto address successfully added.", viewController: self!.addCryptoVC) { _ in
                     self?.addCryptoVC.navigationController?.popViewController(animated: true)
                 }
             }

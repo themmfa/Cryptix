@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01E12FF100A1B671F9F97E3F /* Pods_Crytix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5A3D230CC9D48878D2690F /* Pods_Crytix.framework */; };
 		211759482A1C98F00051B0F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211759472A1C98F00051B0F7 /* ProfileViewController.swift */; };
 		2117594E2A286F9A0051B0F7 /* EditCryptoAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117594D2A286F9A0051B0F7 /* EditCryptoAddressViewController.swift */; };
 		21798E2D2A1B583400AD8135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E2C2A1B583400AD8135 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 		21798E4B2A1B5E8300AD8135 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E4A2A1B5E8300AD8135 /* CustomButton.swift */; };
 		8513C3AD2A236AC1007D195E /* FirebaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */; };
 		85C97F1D2A595B0D00E521AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85C97F1C2A595B0D00E521AA /* GoogleService-Info.plist */; };
+		85C97F202A59681C00E521AA /* ConstantStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C97F1F2A59681C00E521AA /* ConstantStrings.swift */; };
 		85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */; };
 		85D6F0342A1BF0DE004224DE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */; };
 		85D6F0382A1BF66D004224DE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85D6F0372A1BF66D004224DE /* .gitignore */; };
@@ -61,8 +63,11 @@
 		21798E462A1B5ABE00AD8135 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		21798E482A1B5D0800AD8135 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21798E4A2A1B5E8300AD8135 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		314F063D3B60F55D915087B4 /* Pods-Crytix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crytix.debug.xcconfig"; path = "Target Support Files/Pods-Crytix/Pods-Crytix.debug.xcconfig"; sourceTree = "<group>"; };
+		5A5A3D230CC9D48878D2690F /* Pods_Crytix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crytix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseApiService.swift; sourceTree = "<group>"; };
 		85C97F1C2A595B0D00E521AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		85C97F1F2A59681C00E521AA /* ConstantStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantStrings.swift; sourceTree = "<group>"; };
 		85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationViewModel.swift; path = Cryptix/ViewModel/AuthenticationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		85D6F0372A1BF66D004224DE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 		85F534152A2CAC630056FE23 /* ExhangeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhangeListModel.swift; sourceTree = "<group>"; };
 		85F534192A2CB35B0056FE23 /* CustomExchangeDropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExchangeDropdownButton.swift; sourceTree = "<group>"; };
 		85F5341F2A2CFFED0056FE23 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		B10AFF524D84758FCFED71DB /* Pods-Crytix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crytix.release.xcconfig"; path = "Target Support Files/Pods-Crytix/Pods-Crytix.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,7 @@
 				85D6F03F2A1BF77F004224DE /* FirebaseFirestore in Frameworks */,
 				85F534142A2CAAF80056FE23 /* SDWebImage in Frameworks */,
 				85D6F0412A1BF77F004224DE /* FirebaseStorage in Frameworks */,
+				01E12FF100A1B671F9F97E3F /* Pods_Crytix.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,7 @@
 				21798E2B2A1B583400AD8135 /* Cryptix */,
 				21798E2A2A1B583400AD8135 /* Products */,
 				2910436CF0EAA113C8ABE701 /* Pods */,
+				D6302FD780A81A94981CEC98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +134,7 @@
 		21798E2B2A1B583400AD8135 /* Cryptix */ = {
 			isa = PBXGroup;
 			children = (
+				85C97F1E2A59680E00E521AA /* Constants */,
 				21798E432A1B59A300AD8135 /* Controller */,
 				21798E422A1B599F00AD8135 /* View */,
 				85E1D0CC2A1C6CB8008D63EA /* Model */,
@@ -186,8 +195,18 @@
 		2910436CF0EAA113C8ABE701 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				314F063D3B60F55D915087B4 /* Pods-Crytix.debug.xcconfig */,
+				B10AFF524D84758FCFED71DB /* Pods-Crytix.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		85C97F1E2A59680E00E521AA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				85C97F1F2A59681C00E521AA /* ConstantStrings.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		85D6F0442A1BF8FD004224DE /* API */ = {
@@ -220,6 +239,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D6302FD780A81A94981CEC98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A5A3D230CC9D48878D2690F /* Pods_Crytix.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -227,6 +254,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21798E3D2A1B583500AD8135 /* Build configuration list for PBXNativeTarget "Crytix" */;
 			buildPhases = (
+				17EA4199884BB3616E78D1F6 /* [CP] Check Pods Manifest.lock */,
 				21798E252A1B583400AD8135 /* Sources */,
 				21798E262A1B583400AD8135 /* Frameworks */,
 				21798E272A1B583400AD8135 /* Resources */,
@@ -297,6 +325,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17EA4199884BB3616E78D1F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Crytix-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		21798E252A1B583400AD8135 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -306,6 +359,7 @@
 				21798E2D2A1B583400AD8135 /* AppDelegate.swift in Sources */,
 				2117594E2A286F9A0051B0F7 /* EditCryptoAddressViewController.swift in Sources */,
 				21798E4B2A1B5E8300AD8135 /* CustomButton.swift in Sources */,
+				85C97F202A59681C00E521AA /* ConstantStrings.swift in Sources */,
 				85E1D0E42A1DCE7A008D63EA /* HomeViewModel.swift in Sources */,
 				85D6F0342A1BF0DE004224DE /* RegisterViewController.swift in Sources */,
 				85F534112A2CA0540056FE23 /* CustomCryptoDropdown.swift in Sources */,
@@ -466,6 +520,7 @@
 		};
 		21798E3E2A1B583500AD8135 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 314F063D3B60F55D915087B4 /* Pods-Crytix.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -493,6 +548,7 @@
 		};
 		21798E3F2A1B583500AD8135 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B10AFF524D84758FCFED71DB /* Pods-Crytix.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

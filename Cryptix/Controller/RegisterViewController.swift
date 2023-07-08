@@ -11,21 +11,21 @@ class RegisterViewController: UIViewController {
     let registerViewModel = RegisterViewModel()
 
     private var logo: UIImageView = {
-        var logo = UIImageView(image: UIImage(named: "cryptix"))
+        var logo = UIImageView(image: UIImage(named: ConstantStrings.logoImage))
         logo.contentMode = .scaleAspectFill
         return logo
     }()
 
     private var nameField: UITextField = {
-        var nameField = CustomTextfield(placeholder: "Name")
+        var nameField = CustomTextfield(placeholder: ConstantStrings.registerNamePlaceHolder)
         nameField.autocapitalizationType = .words
         return nameField
     }()
 
-    private var emailField = CustomTextfield(placeholder: "Email")
+    private var emailField = CustomTextfield(placeholder: ConstantStrings.registerEmailPlaceHolder)
 
     private var passwordField: UITextField = {
-        var passwordField = CustomTextfield(placeholder: "Password")
+        var passwordField = CustomTextfield(placeholder: ConstantStrings.registerPasswordPlaceHolder)
         passwordField.isSecureTextEntry = true
         return passwordField
     }()
@@ -33,7 +33,7 @@ class RegisterViewController: UIViewController {
     // MARK: - Login button
 
     private lazy var registerButton: UIButton = {
-        var registerButton = CustomButton(title: "Register")
+        var registerButton = CustomButton(title: ConstantStrings.registerRegisterButtonTitle)
         registerButton.backgroundColor = registerViewModel.loginButtonColor
         registerButton.isEnabled = registerViewModel.loginButtonEnabled
         return registerButton
@@ -42,11 +42,11 @@ class RegisterViewController: UIViewController {
     private let gotoLoginButton: UIButton = {
         let button = UIButton(type: .system)
         let atts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black, .font: UIFont.systemFont(ofSize: 16)]
-        let attributedString = NSMutableAttributedString(string: "Do you have an account? ", attributes: atts)
+        let attributedString = NSMutableAttributedString(string: ConstantStrings.registerDoYouHaveAnAccount, attributes: atts)
 
         let boldAtts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black, .font: UIFont.boldSystemFont(ofSize: 16)]
 
-        attributedString.append(NSAttributedString(string: "Login", attributes: boldAtts))
+        attributedString.append(NSAttributedString(string: ConstantStrings.registerLoginText, attributes: boldAtts))
         button.setAttributedTitle(attributedString, for: .normal)
         return button
     }()
@@ -63,7 +63,7 @@ class RegisterViewController: UIViewController {
         view.backgroundColor = .white
         layout()
         textfieldObservers()
-        self.dissmissableKeyboard()
+        dissmissableKeyboard()
         gotoLoginButton.addTarget(self, action: #selector(goToLoginButtonAction), for: UIControl.Event.touchUpInside)
         registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
     }
