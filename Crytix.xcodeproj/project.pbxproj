@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		211759482A1C98F00051B0F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211759472A1C98F00051B0F7 /* ProfileViewController.swift */; };
 		2117594E2A286F9A0051B0F7 /* EditCryptoAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117594D2A286F9A0051B0F7 /* EditCryptoAddressViewController.swift */; };
-		216247C92A3AEC390071D63C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 216247C82A3AEC390071D63C /* GoogleService-Info.plist */; };
 		21798E2D2A1B583400AD8135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E2C2A1B583400AD8135 /* AppDelegate.swift */; };
 		21798E2F2A1B583400AD8135 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E2E2A1B583400AD8135 /* SceneDelegate.swift */; };
 		21798E312A1B583400AD8135 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E302A1B583400AD8135 /* LoginViewController.swift */; };
@@ -19,6 +18,7 @@
 		21798E492A1B5D0800AD8135 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E482A1B5D0800AD8135 /* CustomTextField.swift */; };
 		21798E4B2A1B5E8300AD8135 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21798E4A2A1B5E8300AD8135 /* CustomButton.swift */; };
 		8513C3AD2A236AC1007D195E /* FirebaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */; };
+		85C97F1D2A595B0D00E521AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85C97F1C2A595B0D00E521AA /* GoogleService-Info.plist */; };
 		85D6F0322A1BDEF7004224DE /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */; };
 		85D6F0342A1BF0DE004224DE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */; };
 		85D6F0382A1BF66D004224DE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85D6F0372A1BF66D004224DE /* .gitignore */; };
@@ -51,7 +51,6 @@
 /* Begin PBXFileReference section */
 		211759472A1C98F00051B0F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2117594D2A286F9A0051B0F7 /* EditCryptoAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCryptoAddressViewController.swift; sourceTree = "<group>"; };
-		216247C82A3AEC390071D63C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21798E292A1B583400AD8135 /* Crytix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crytix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21798E2C2A1B583400AD8135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21798E2E2A1B583400AD8135 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		21798E482A1B5D0800AD8135 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21798E4A2A1B5E8300AD8135 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8513C3AC2A236AC1007D195E /* FirebaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseApiService.swift; sourceTree = "<group>"; };
+		85C97F1C2A595B0D00E521AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85D6F0312A1BDEF7004224DE /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationViewModel.swift; path = Cryptix/ViewModel/AuthenticationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		85D6F0332A1BF0DE004224DE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		85D6F0372A1BF66D004224DE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				21798E2E2A1B583400AD8135 /* SceneDelegate.swift */,
 				21798E352A1B583500AD8135 /* Assets.xcassets */,
 				21798E372A1B583500AD8135 /* LaunchScreen.storyboard */,
+				85C97F1C2A595B0D00E521AA /* GoogleService-Info.plist */,
 				21798E3A2A1B583500AD8135 /* Info.plist */,
-				216247C82A3AEC390071D63C /* GoogleService-Info.plist */,
 			);
 			path = Cryptix;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21798E392A1B583500AD8135 /* LaunchScreen.storyboard in Resources */,
-				216247C92A3AEC390071D63C /* GoogleService-Info.plist in Resources */,
+				85C97F1D2A595B0D00E521AA /* GoogleService-Info.plist in Resources */,
 				85D6F0382A1BF66D004224DE /* .gitignore in Resources */,
 				21798E362A1B583500AD8135 /* Assets.xcassets in Resources */,
 			);

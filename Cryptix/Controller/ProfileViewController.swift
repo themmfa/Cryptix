@@ -55,11 +55,17 @@ class ProfileViewController: UIViewController {
         signOutButton.addTarget(self, action: #selector(signOut), for: .touchUpInside)
         activityIndicatorController.startAnimating(in: self)
         homeViewModel.getUserInfo()
+        setupNavBar()
         layout()
     }
 }
 
 extension ProfileViewController {
+    /// Nav bar setup
+    func setupNavBar() {
+        navigationController?.setupNavAppearence()
+    }
+    
     private func layout() {
         // MARK: - Logo layout
         
